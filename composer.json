@@ -27,6 +27,7 @@
         "symfony/web-link": "4.4.*",
         "symfony/webpack-encore-bundle": "^1.7",
         "symfony/yaml": "4.4.*",
+        "twbs/bootstrap": "^4.3",
         "twig/twig": "^3.0"
     },
     "require-dev": {

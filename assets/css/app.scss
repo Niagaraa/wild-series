@@ -1,3 +1,13 @@
+@import "~bootstrap/scss/bootstrap";
+@import "nav.css";
+
+:root {
+    --light: #ffeffc;
+    --secondary: #ffad66;
+    --primary: #630836;
+    --dark: #00011c;
+}
+
 body {
-    background-color: lightblue;
+    background-color: var(--light);
 }
