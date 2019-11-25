@@ -37,7 +37,7 @@ Class WildController extends AbstractController
      * Getting a program with a formatted slug for title
      *
      * @param string $slug The slugger
-     * @Route("/wild/show/{slug<^[a-z0-9-]+$}", defaults={"slug" = null},  name="wild_show")
+     * @Route("/wild/show/{slug}", requirements={"slug":"[a-z0-9\-]+"}, defaults={"slug" = ""},  name="wild_show")
      */
 
     public function show(string $slug): Response
@@ -64,7 +64,8 @@ Class WildController extends AbstractController
 
         return $this->render('wild/show.html.twig', [
             'website' => 'Wild Séries',
-            'slug' => $slug
+            'slug' => $slug,
+            'program' => $program
         ]);
     }
 }
