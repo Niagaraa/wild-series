@@ -2,6 +2,7 @@
 // src/Controller/WildController.php
 namespace App\Controller;
 
+use App\Entity\Category;
 use App\Entity\Program;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -66,6 +67,42 @@ Class WildController extends AbstractController
             'website' => 'Wild Séries',
             'slug' => $slug,
             'program' => $program
+        ]);
+    }
+
+    /**
+     * Getting a program with a formatted slug for title
+     *
+     * @Route("wild/category/{categoryName}", name="show_category")
+     * @return Response
+     */
+
+    public function showByCategory(string $categoryName): Response
+    {
+        if(!$categoryName) {
+            throw $this->createNotFoundException(
+                'No programs for this category.'
+            );
+        }
+
+        $category = $this->getDoctrine()
+            ->getRepository(Category::class)
+            ->findOneBy([
+                'name' => $categoryName
+            ]);
+
+        $programs = $this->getDoctrine()
+            ->getRepository(Program::class)
+            ->findBy(
+                ['category' => $category],
+                ['id' => 'desc'],
+                3
+            );
+
+        return $this->render('wild/category.html.twig', [
+            'website' => 'Wild Séries',
+            'programs' => $programs,
+            'category'  => $category,
         ]);
     }
 }
