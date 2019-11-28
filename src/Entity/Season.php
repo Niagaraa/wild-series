@@ -19,8 +19,7 @@ class Season
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Program", inversedBy="program")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity="App\Entity\Program", inversedBy="seasons")
      */
     private $program;
 
@@ -35,7 +34,7 @@ class Season
     private $description;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Episode", mappedBy="season", orphanRemoval=true)
+     * @ORM\OneToMany(targetEntity="App\Entity\Episode", mappedBy="season")
      */
     private $episodes;
 
