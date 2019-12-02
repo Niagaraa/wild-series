@@ -127,7 +127,7 @@ Class WildController extends AbstractController
             ' ', ucwords(trim(strip_tags($programName)))
         );
 
-        $programs = $this->getDoctrine()
+        $program = $this->getDoctrine()
             ->getRepository(Program::class)
             ->findOneBy(
                 ['title' => $programName]
@@ -135,14 +135,15 @@ Class WildController extends AbstractController
 
         $seasons = $this->getDoctrine()
             ->getRepository(Season::class)
-            ->findAll();
-
-
+            ->findBy(
+                ['program' => $program],
+                ['id' => 'asc']
+            );
 
         return $this->render('wild/program.html.twig', [
             'website' => 'Wild Séries',
             'slug' => $programName,
-            'programs' => $programs,
+            'program' => $program,
             'seasons' => $seasons
         ]);
     }
