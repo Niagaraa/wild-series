@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+{% block title %}{{ slug }}{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <div class="media-body"><h1 class="mt-0">Toutes les saisons de {{ slug }}</h1>
+            <hr>
+            {% for season in seasons %}
+                <div class="seasons">
+                    <a class="btn btn-dark" role="button" href="#">Saison {{ season.number }}</a>
+                </div>
+            {% endfor %}
+        </div>
+
+
+        <a href="{{ path('wild_index') }}">
+            Retour à l'accueil
+        </a>
+    </div>
+{% endblock %}
+
