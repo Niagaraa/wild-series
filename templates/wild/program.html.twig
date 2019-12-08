@@ -7,7 +7,7 @@
         <div class="container">
             <div class="pic">
                 <img src="{{ program.poster }}" alt="Affiche de {{ program.title }}" class="poster">
-                <a href="{{ path('wild_index') }}">
+                <a class="btn" href="{{ path('wild_index') }}">
                     Retour à l'accueil
                 </a>
             </div>
@@ -18,7 +18,7 @@
                 {{ program.summary }}
                 {% for season in seasons %}
                     <div class="seasons">
-                        <a class="btn btn-dark" role="button"
+                        <a class="btn" role="button"
                            href="{{ path('show_season', {'id': season.id }) }}">Saison {{ season.number }}</a>
                     </div>
                 {% endfor %}

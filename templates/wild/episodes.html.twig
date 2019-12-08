@@ -8,8 +8,12 @@
 
         <div class="episodes">
             {% for episode in episodes %}
-                <h2>Episode {{ episode.number }} : <i>{{ episode.title }}</i></h2>
+                <a href="{{ path('show_episode', {'id': episode.id }) }}">
+                    <h2>Episode {{ episode.number }} : <i>{{ episode.title }}</i></h2>
+                </a>
             {% endfor %}
         </div>
+
+        <a class="btn" href="{{ path('show_program', {'programName': program.title }) }}">Retour</a>
     </div>
 {% endblock %}

@@ -33,8 +33,32 @@ body {
 h1 {
     @include primary-title;
     font-size: 2.5rem;
+    padding: 0.5rem;
 }
 
 h2 {
     @include secondary-title;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+}
+
+h3 {
+    @include primary-title;
+    font-size: 2rem;
+    padding: 0.5rem;
+    color: var(--primary)
+}
+
+.btn {
+    background-color: var(--primary);
+    color: var(--secondary);
+    margin: 1rem;
+}
+
+.btn:hover {
+    background-color: var(--secondary);
+}
+
+a:hover {
+    text-decoration:underline var(--secondary);
 }
