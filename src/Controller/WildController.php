@@ -6,10 +6,11 @@ use App\Entity\Category;
 use App\Entity\Episode;
 use App\Entity\Program;
 use App\Entity\Season;
+use App\Form\ProgramSearchType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 Class WildController extends AbstractController
 {
@@ -31,9 +32,16 @@ Class WildController extends AbstractController
             );
         }
 
+        $form = $this->createForm(
+            ProgramSearchType::class,
+            null,
+            ['method' => Request::METHOD_GET]
+        );
+
         return $this->render('wild/index.html.twig', [
             'website' => 'Wild Series',
-            'programs' => $programs
+            'programs' => $programs,
+            'form' => $form->createView()
         ]);
     }
 
