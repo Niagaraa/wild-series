@@ -3,26 +3,27 @@
 
 {% block body %}
 
-    <div class="container">
-        <div class="pic">
-            <img src="{{ program.poster }}" alt="Affiche de {{ program.title }}" class="poster">
-            <a href="{{ path('wild_index') }}">
-                Retour à l'accueil
-            </a>
+    <div class="program">
+        <div class="container">
+            <div class="pic">
+                <img src="{{ program.poster }}" alt="Affiche de {{ program.title }}" class="poster">
+                <a href="{{ path('wild_index') }}">
+                    Retour à l'accueil
+                </a>
+            </div>
+
+            <div class="content">
+                <h1>{{ program.title }}</h1>
+                <hr>
+                {{ program.summary }}
+                {% for season in seasons %}
+                    <div class="seasons">
+                        <a class="btn btn-dark" role="button"
+                           href="{{ path('show_season', {'id': season.id }) }}">Saison {{ season.number }}</a>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
-
-        <div class="content">
-            <h1>{{ program.title }}</h1>
-            <hr>
-            {{ program.summary }}
-            {% for season in seasons %}
-                <div class="seasons">
-                    <a class="btn btn-dark" role="button" href="#">Saison {{ season.number }}</a>
-                </div>
-            {% endfor %}
-        </div>
-
-
     </div>
 {% endblock %}
 

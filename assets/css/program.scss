@@ -1,6 +1,8 @@
-.container {
-    display: flex;
-    margin-top: 3rem;
+.program {
+    .container {
+        display: flex;
+        margin-top: 3rem;
+    }
 }
 
 .pic {
@@ -10,8 +12,8 @@
     align-items: center;
 }
 
-.poster{
-    height:20rem;
+.poster {
+    height: 20rem;
 }
 
 .content {
