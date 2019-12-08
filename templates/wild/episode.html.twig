@@ -12,8 +12,8 @@
             </div>
         </div>
 
-        <a href="" class="btn" role="button">Voir toutes les saisons de {{ program.title }}</a>
-        <a href="" class="btn" role="button">Voir la fiche de {{ program.title }}</a>
+        <a href="{{ path('show_season', {'id': season.id}) }}" class="btn" role="button">Tous les épisodes de la saison {{ season.program }} de {{ program.title }}</a>
+        <a href="{{ path('show_program', {'programName': program.title}) }}" class="btn" role="button">Détails de {{ program.title }}</a>
     </div>
 
 {% endblock %}
