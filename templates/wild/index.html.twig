@@ -3,16 +3,19 @@
 {% block title %}All programs{% endblock %}
 
 {% block body %}
+    <div class="container">
         <h1>Toutes les séries de la table program : </h1>
+
         {% for program in programs %}
-                <div>
-                        <h2>{{ loop.index }} / {{ program.title }} - Catégorie : {{ program.category.name }}</h2>
-                        <p>{{ program.summary }}</p>
-                </div>
+            <div>
+                <h2>{{ loop.index }} / {{ program.title }} - Catégorie : {{ program.category.name }}</h2>
+                <p>{{ program.summary }}</p>
+            </div>
         {% else %}
-                Aucune série trouvée.
+            Aucune série trouvée.
         {% endfor %}
         <a href="{{ path('app_index') }}">
-                Retour à l'accueil
+            Retour à l'accueil
         </a>
+    </div>
 {% endblock %}

@@ -1,0 +1,26 @@
+.program {
+    .container {
+        display: flex;
+        margin-top: 3rem;
+    }
+}
+
+.pic {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.poster {
+    height: 20rem;
+}
+
+.content {
+    margin-left: 3rem;
+}
+
+.seasons {
+    display: block;
+    margin: 1em;
+}

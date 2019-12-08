@@ -1,13 +1,13 @@
 /*
-Error: File to import not found or unreadable: ~bootstrap/scss/bootstrap.
+Error: File to import not found or unreadable: ~bootstrap.
         on line 1 of app.scss
 
-1: @import "~bootstrap/scss/bootstrap";
-2: @import "nav.css";
-3: 
-4: :root {
-5:     --light: #ffeffc;
-6:     --secondary: #ffad66;
+1: @import '~bootstrap';
+2: @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+3: @import "nav";
+4: @import "program";
+5: @import "episodes";
+6: 
 
 Backtrace:
 app.scss:1
@@ -46,4 +46,4 @@ app.scss:1
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: ~bootstrap/scss/bootstrap.\A         on line 1 of app.scss\A \A 1: @import \"~bootstrap/scss/bootstrap\";\A 2: @import \"nav.css\";\A 3: \A 4: :root {\A 5:     --light: #ffeffc;\A 6:     --secondary: #ffad66;"; }
+  content: "Error: File to import not found or unreadable: ~bootstrap.\A         on line 1 of app.scss\A \A 1: @import '~bootstrap';\A 2: @import '~@fortawesome/fontawesome-free/scss/fontawesome';\A 3: @import \"nav\";\A 4: @import \"program\";\A 5: @import \"episodes\";\A 6: "; }
