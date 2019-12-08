@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        {% form_theme form 'bootstrap_4_layout.html.twig' %}
+        {{ form_start(form) }}
+        {{ form_row(form.name) }}
+        <button class="btn">{{ button_label|default('Save') }}</button>
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}
