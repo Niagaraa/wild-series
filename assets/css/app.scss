@@ -2,13 +2,14 @@
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 @import "nav";
 @import "program";
+@import "episodes";
 
 @mixin primary-title {
     font-family: 'Orbitron', sans-serif;
 }
 
 @mixin secondary-title {
-    font-family: 'Syncopate', sans-serif;
+    font-family: 'Notable', sans-serif;
 }
 
 @mixin default-font {
@@ -32,4 +33,8 @@ body {
 h1 {
     @include primary-title;
     font-size: 2.5rem;
+}
+
+h2 {
+    @include secondary-title;
 }
