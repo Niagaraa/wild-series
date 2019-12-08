@@ -15,12 +15,6 @@
             Aucune série trouvée.
         {% endfor %}
 
-        {% form_theme form 'bootstrap_4_layout.html.twig' %}
-        {{ form_start(form) }}
-        {{ form_row(form.searchField) }}
-        <button type="submit" name="btnSearch">Rechercher</button>
-        {{ form_end(form) }}
-
         <a href="{{ path('app_index') }}">
             Retour à l'accueil
         </a>

@@ -6,6 +6,7 @@ use App\Entity\Category;
 use App\Entity\Episode;
 use App\Entity\Program;
 use App\Entity\Season;
+use App\Form\CategoryType;
 use App\Form\ProgramSearchType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -33,7 +34,7 @@ Class WildController extends AbstractController
         }
 
         $form = $this->createForm(
-            ProgramSearchType::class,
+            CategoryType::class,
             null,
             ['method' => Request::METHOD_GET]
         );
