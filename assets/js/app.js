@@ -5,7 +5,7 @@
  * (and its CSS file) in your base layout (base.html.twig).
  */
 
-// any CSS you require will output into a single css file (app.scss in this case)
+// any SCSS you require will output into a single css file (app.scss in this case)
 require('../css/app.scss');
 
 const $ = require('jquery');

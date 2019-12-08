@@ -58,3 +58,7 @@ h3 {
 .btn:hover {
     background-color: var(--secondary);
 }
+
+a:hover {
+    text-decoration:underline var(--secondary);
+}
