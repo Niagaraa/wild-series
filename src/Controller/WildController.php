@@ -32,7 +32,7 @@ Class WildController extends AbstractController
         }
 
         return $this->render('wild/index.html.twig', [
-            'website' => 'Wild Séries',
+            'website' => 'Wild Series',
             'programs' => $programs
         ]);
     }
@@ -67,7 +67,7 @@ Class WildController extends AbstractController
         }
 
         return $this->render('wild/show.html.twig', [
-            'website' => 'Wild Séries',
+            'website' => 'Wild Series',
             'slug' => $slug,
             'program' => $program
         ]);
@@ -103,7 +103,7 @@ Class WildController extends AbstractController
             );
 
         return $this->render('wild/category.html.twig', [
-            'website' => 'Wild Séries',
+            'website' => 'Wild Series',
             'programs' => $programs,
             'category' => $category,
         ]);
@@ -142,7 +142,7 @@ Class WildController extends AbstractController
             );
 
         return $this->render('wild/program.html.twig', [
-            'website' => 'Wild Séries',
+            'website' => 'Wild Series',
             'slug' => $programName,
             'program' => $program,
             'seasons' => $seasons
@@ -163,10 +163,31 @@ Class WildController extends AbstractController
         $episodes = $season->getEpisodes();
 
         return $this->render('wild/episodes.html.twig', [
-            'website' => 'Wild Séries',
+            'website' => 'Wild Series',
             'season' => $season,
             'program' => $program,
             'episodes' => $episodes
+        ]);
+    }
+
+    /**
+     * @Route("/wild/episode/{id}", name="show_episode")
+     * @param Episode $episode
+     * @param $season
+     * @return Response
+     */
+
+    public function showEpisode(Episode $episode): Response
+    {
+        $season = $episode->getSeason();
+
+        $program = $season->getProgram();
+
+        return $this->render('wild/episode.html.twig', [
+            'website' => 'Wild Series',
+            'episode' => $episode,
+            'season' => $season,
+            'program' => $program
         ]);
     }
 }
