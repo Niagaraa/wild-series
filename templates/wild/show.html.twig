@@ -10,7 +10,7 @@
             <p>{{ program.summary }}</p>
             <p>Categorie : {{ program.category.name }}</p>
 
-            <a href="#">Voir toutes les saisons de {{ program.title }}</a>
+            <a href="{{ path('show_program', {'programName': slug }) }}">Voir toutes les saisons de {{ program.title }}</a>
         </div>
     </div>
 

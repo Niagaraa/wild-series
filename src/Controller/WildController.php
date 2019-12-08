@@ -1,5 +1,5 @@
 <?php
-// src/Controller/WildController.php
+
 namespace App\Controller;
 
 use App\Entity\Category;

@@ -4,8 +4,17 @@
 {% block body %}
 
     <div class="container">
-        <div class="media-body"><h1 class="mt-0">Toutes les saisons de {{ slug }}</h1>
+        <div class="pic">
+            <img src="{{ program.poster }}" alt="Affiche de {{ program.title }}" class="poster">
+            <a href="{{ path('wild_index') }}">
+                Retour à l'accueil
+            </a>
+        </div>
+
+        <div class="content">
+            <h1>{{ program.title }}</h1>
             <hr>
+            {{ program.summary }}
             {% for season in seasons %}
                 <div class="seasons">
                     <a class="btn btn-dark" role="button" href="#">Saison {{ season.number }}</a>
@@ -14,9 +23,6 @@
         </div>
 
 
-        <a href="{{ path('wild_index') }}">
-            Retour à l'accueil
-        </a>
     </div>
 {% endblock %}
 

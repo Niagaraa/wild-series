@@ -1,7 +1,21 @@
-@import "~bootstrap/scss/bootstrap";
+@import '~bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
-@import "nav.css";
-@import "program.css";
+@import "nav";
+@import "program";
+
+@mixin primary-title {
+    font-family: 'Orbitron', sans-serif;
+}
+
+@mixin secondary-title {
+    font-family: 'Syncopate', sans-serif;
+}
+
+@mixin default-font {
+    font-family: 'Abel', sans-serif;
+    font-size: 1.15rem;
+    text-align: justify;
+}
 
 :root {
     --light: #ffeffc;
@@ -12,4 +26,10 @@
 
 body {
     background-color: var(--light);
+    @include default-font;
+}
+
+h1 {
+    @include primary-title;
+    font-size: 2.5rem;
 }
