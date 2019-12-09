@@ -3,7 +3,7 @@
 {% block title %}Episode index{% endblock %}
 
 {% block body %}
-    <h1>Episode index</h1>
+    <h1>Episodes</h1>
 
     <table class="table">
         <thead>
@@ -35,5 +35,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('episode_new') }}">Create new</a>
+    <a href="{{ path('episode_new') }}" class="btn">Ajouter un épisode</a>
 {% endblock %}
