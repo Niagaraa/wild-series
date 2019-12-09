@@ -7,22 +7,35 @@
 
     <table class="table">
         <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ program.id }}</td>
-            </tr>
-            <tr>
-                <th>Titre</th>
-                <td>{{ program.title }}</td>
-            </tr>
-            <tr>
-                <th>Résumé</th>
-                <td>{{ program.summary }}</td>
-            </tr>
-            <tr>
-                <th>Affiche</th>
-                <td><img src="{{ program.poster }}" alt="" class="poster"></td>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <td>{{ program.id }}</td>
+        </tr>
+        <tr>
+            <th>Titre</th>
+            <td>{{ program.title }}</td>
+        </tr>
+        <tr>
+            <th>Résumé</th>
+            <td>{{ program.summary }}</td>
+        </tr>
+        <tr>
+            <th>Affiche</th>
+            <td><img src="{{ program.poster }}" alt="" class="poster"></td>
+        </tr>
+        <tr>
+            <th>Acteurs</th>
+            <td>
+                <ul>
+                    {% for actor in program.actors %}
+                        <li>{{ actor.name }} </li>
+                    {% else %}
+                        <li>Aucun acteur pour cette série</li>
+                    {% endfor %}
+                </ul>
+            </td>
+        </tr>
+
         </tbody>
     </table>
 
