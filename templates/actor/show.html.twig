@@ -3,12 +3,20 @@
 {% block body %}
     <div class="container">
         <h1>{{ actor.name }}</h1>
-        <h2>A joué dans :</h2>
-        <ul>
+        <p>A joué dans :</p>
+
+        <div class="programs">
+
             {% for program in programs %}
-                <li><a href="{{ path('show_program', {'programName': program.title }) }}">{{ program.title }}</a></li>
+                <a class="card"  href="{{ path('show_program', {'programName': program.title }) }}" style="width: 18rem;">
+                    <img src="{{ program.poster }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h2>{{ program.title }}</h2>
+                    </div>
+                </a>
             {% endfor %}
-        </ul>
+
+        </div>
     </div>
 
 
