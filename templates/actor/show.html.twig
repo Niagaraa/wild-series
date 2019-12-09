@@ -6,7 +6,7 @@
         <h2>A joué dans :</h2>
         <ul>
             {% for program in programs %}
-                <li>{{ program.title }}</li>
+                <li><a href="{{ path('show_program', {'programName': program.title }) }}">{{ program.title }}</a></li>
             {% endfor %}
         </ul>
     </div>
