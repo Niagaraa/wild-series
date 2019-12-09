@@ -15,8 +15,7 @@ class SeasonType extends AbstractType
             ->add('year')
             ->add('description')
             ->add('number')
-            ->add('program')
-        ;
+            ->add('program');
     }
 
     public function configureOptions(OptionsResolver $resolver)
