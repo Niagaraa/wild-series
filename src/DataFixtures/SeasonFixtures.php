@@ -14,7 +14,7 @@ class SeasonFixtures extends Fixture implements DependentFixtureInterface
     {
         $this->faker = Factory::create();
 
-        for ($i = 0; $i < 20; $i++) {
+        for ($i = 0; $i < 10; $i++) {
             $season = new Season();
             $season->setYear($this->faker->numberBetween(1990, 2019));
             $season->setDescription($this->faker->text);
