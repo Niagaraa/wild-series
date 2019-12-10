@@ -17,7 +17,7 @@ class Episode
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Season", inversedBy="episodes")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Season", inversedBy="episodes", cascade={"persist"})
      */
     private $season;
 
