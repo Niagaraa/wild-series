@@ -32,7 +32,7 @@ class ActorFixtures extends Fixture implements DependentFixtureInterface
             $actor->addProgram($this->getReference('program_0'));
         }
 
-        for ($i = 0; $i < 20 ; $i++) {
+        for ($i = 0; $i < 50 ; $i++) {
             $actor = new Actor();
             $actor->setName($this->faker->name);
             $this->addReference('actor_' . $i, $actor);
