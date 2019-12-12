@@ -32,13 +32,13 @@ class ProgramController extends AbstractController
     public function new(Request $request, Slugify $slugify): Response
     {
         $program = new Program();
-        $slug = $slugify->generate($program->getTitle());
-        $program->setSlug($slug);
         $form = $this->createForm(ProgramType::class, $program);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+            $slug = $slugify->generate($program->getTitle());
+            $program->setSlug($slug);
             $entityManager->persist($program);
             $entityManager->flush();
 
@@ -47,7 +47,7 @@ class ProgramController extends AbstractController
 
         return $this->render('program/new.html.twig', [
             'program' => $program,
-            'form' => $form->createView(),
+            'form' => $form->createView()
         ]);
     }
 
