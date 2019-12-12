@@ -4,10 +4,10 @@
 namespace App\Controller;
 
 use App\Entity\Actor;
-use App\Entity\Program;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 class ActorController extends AbstractController
 {
