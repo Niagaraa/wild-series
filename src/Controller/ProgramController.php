@@ -69,10 +69,10 @@ class ProgramController extends AbstractController
     {
         $form = $this->createForm(ProgramType::class, $program);
         $form->handleRequest($request);
+        $program->setSlug($slugify->generate($program->getTitle()));
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-            $program->setSlug($slugify->generate($program->getTitle()));
 
             return $this->redirectToRoute('program_index');
         }
