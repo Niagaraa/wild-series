@@ -8,7 +8,10 @@ class Slugify
 {
     public function generate(string $input): string
     {
-        $input = mb_strtolower(str_replace(' ', '-', $input));
+        $input = strtolower(str_replace(' ', '-', $input));
+        $input = str_replace('--', '-', $input);
+
         return $input;
     }
+
 }
