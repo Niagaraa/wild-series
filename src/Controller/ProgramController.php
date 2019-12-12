@@ -52,25 +52,27 @@ class ProgramController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="program_show", methods={"GET"})
+     * @Route("/{slug}", name="program_show", methods={"GET"})
      */
-    public function show(Program $program): Response
+    public function show(Program $program, Slugify $slugify): Response
     {
+        $program->setSlug($slugify->generate($program->getTitle()));
         return $this->render('program/show.html.twig', [
             'program' => $program,
         ]);
     }
 
     /**
-     * @Route("/{id}/edit", name="program_edit", methods={"GET","POST"})
+     * @Route("/{slug}/edit", name="program_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Program $program): Response
+    public function edit(Request $request, Program $program, Slugify $slugify): Response
     {
         $form = $this->createForm(ProgramType::class, $program);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
+            $program->setSlug($slugify->generate($program->getTitle()));
 
             return $this->redirectToRoute('program_index');
         }
