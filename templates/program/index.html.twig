@@ -8,7 +8,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+                <th></th>
                 <th>Affiche</th>
                 <th>Titre</th>
                 <th>Résumé</th>
@@ -18,13 +18,13 @@
         <tbody>
         {% for program in programs %}
             <tr>
-                <td>{{ program.id }}</td>
+                <td>{{ loop.index }}</td>
                 <td><img src="{{ program.poster }}" class="poster" alt=""></td>
                 <td>{{ program.title }}</td>
                 <td>{{ program.summary }}</td>
                 <td>
-                    <a href="{{ path('program_show', {'id': program.id}) }}">show</a>
-                    <a href="{{ path('program_edit', {'id': program.id}) }}">edit</a>
+                    <a href="{{ path('program_show', {'slug': program.slug }) }}">show</a>
+                    <a href="{{ path('program_edit', {'slug': program.slug }) }}">edit</a>
                 </td>
             </tr>
         {% else %}

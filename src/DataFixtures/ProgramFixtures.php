@@ -8,6 +8,7 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Faker\Factory;
+use App\Service\Slugify;
 
 class ProgramFixtures extends Fixture implements DependentFixtureInterface
 {
@@ -53,19 +54,22 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
 
     public function load(ObjectManager $manager)
     {
-        $this->faker = Factory::create();
+        $slugify = new Slugify();
+        $faker = Factory::create();
 
         $i = 0;
 
         foreach (self::PROGRAMS as $title => $data) {
             $program = new Program();
             $program->setTitle($title);
-            $program->setPoster($this->faker->imageUrl(200, 320));
+            $program->setPoster($faker->imageUrl(200, 320));
             $program->setSummary($data['summary']);
-            $this->addReference('program_' . $i, $program);
-            $i++;
+            $program->setSlug($slugify->generate($program->getTitle()));
             $program->setCategory($this->getReference('categorie_0'));
 
+            $this->addReference('program_' . $i, $program);
+            
+            $i++;
             $manager->persist($program);
         }
 

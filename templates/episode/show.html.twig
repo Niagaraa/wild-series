@@ -8,10 +8,6 @@
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ episode.id }}</td>
-            </tr>
-            <tr>
                 <th>Title</th>
                 <td>{{ episode.title }}</td>
             </tr>
@@ -26,9 +22,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('episode_index') }}">back to list</a>
+    <a href="{{ path('episode_index') }}" class="btn">Retour à la liste des épisiodes</a>
 
-    <a href="{{ path('episode_edit', {'id': episode.id}) }}">edit</a>
+    <a href="{{ path('episode_edit', {'slug': episode.slug}) }}" class="btn">Modifier</a>
 
     {{ include('episode/_delete_form.html.twig') }}
 {% endblock %}
