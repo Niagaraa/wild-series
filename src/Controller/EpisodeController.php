@@ -55,7 +55,7 @@ class EpisodeController extends AbstractController
      */
     public function show(Episode $episode, Slugify $slugify): Response
     {
-        $episode->getSlug($slugify->generate($episode->getTitle()));
+        $episode->setSlug($slugify->generate($episode->getTitle()));
 
         return $this->render('episode/show.html.twig', [
             'episode' => $episode,
@@ -69,7 +69,7 @@ class EpisodeController extends AbstractController
     {
         $form = $this->createForm(EpisodeType::class, $episode);
         $form->handleRequest($request);
-        $episode->getSlug($slugify->generate($episode->getTitle()));
+        $episode->setSlug($slugify->generate($episode->getTitle()));
 
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
