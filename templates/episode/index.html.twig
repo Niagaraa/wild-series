@@ -8,7 +8,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+                <th></th>
                 <th>Titre</th>
                 <th>Episode</th>
                 <th>Synopsis</th>
@@ -18,7 +18,7 @@
         <tbody>
         {% for episode in episodes %}
             <tr>
-                <td>{{ episode.id }}</td>
+                <td>{{ loop.index }}</td>
                 <td>{{ episode.title }}</td>
                 <td>{{ episode.number }}</td>
                 <td>{{ episode.synopsis }}</td>
@@ -29,7 +29,7 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">Aucun épisode trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
