@@ -22,9 +22,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('episode_index') }}" class="active">Retour à la liste des épisiodes</a>
+    <a href="{{ path('episode_index') }}" class="btn">Retour à la liste des épisiodes</a>
 
-    <a href="{{ path('episode_edit', {'slug': episode.slug}) }}">Modifier</a>
+    <a href="{{ path('episode_edit', {'slug': episode.slug}) }}" class="btn">Modifier</a>
 
     {{ include('episode/_delete_form.html.twig') }}
 {% endblock %}
