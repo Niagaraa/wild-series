@@ -8,7 +8,7 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
+                <th></th>
                 <th>Affiche</th>
                 <th>Titre</th>
                 <th>Résumé</th>
@@ -18,7 +18,7 @@
         <tbody>
         {% for program in programs %}
             <tr>
-                <td>{{ program.id }}</td>
+                <td>{{ loop.index }}</td>
                 <td><img src="{{ program.poster }}" class="poster" alt=""></td>
                 <td>{{ program.title }}</td>
                 <td>{{ program.summary }}</td>

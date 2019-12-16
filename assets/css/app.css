@@ -7,7 +7,7 @@ Error: File to import not found or unreadable: ~bootstrap.
 3: @import "nav";
 4: @import "program";
 5: @import "episodes";
-6: @import "actor";
+6: @import "_actor";
 
 Backtrace:
 app.scss:1

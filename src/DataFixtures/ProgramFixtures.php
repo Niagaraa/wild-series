@@ -55,20 +55,23 @@ class ProgramFixtures extends Fixture implements DependentFixtureInterface
     public function load(ObjectManager $manager)
     {
         $slugify = new Slugify();
-        $this->faker = Factory::create();
+        $faker = Factory::create();
 
         $i = 0;
 
         foreach (self::PROGRAMS as $title => $data) {
             $program = new Program();
             $program->setTitle($title);
-            $program->setPoster($this->faker->imageUrl(200, 320));
+            $program->setPoster($faker->imageUrl(200, 320));
             $program->setSummary($data['summary']);
-            $this->addReference('program_' . $i, $program);
-            $i++;
-            $program->setCategory($this->getReference('categorie_0'));
             $program->setSlug($slugify->generate($program->getTitle()));
+            $program->setCategory($this->getReference('categorie_0'));
 
+            $this->addReference('program_' . $i, $program);
+            $program->getActors($this->getReference('actor_0'));
+
+
+            $i++;
             $manager->persist($program);
         }
 
