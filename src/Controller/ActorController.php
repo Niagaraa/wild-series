@@ -3,9 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Actor;
-use App\Entity\Program;
 use App\Form\ActorType;
-use App\Form\ProgramType;
 use App\Repository\ActorRepository;
 use App\Service\Slugify;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -59,8 +57,11 @@ class ActorController extends AbstractController
      */
     public function show(Actor $actor): Response
     {
+        $programs = $actor->getPrograms();
+
         return $this->render('actor/show.html.twig', [
-            'actor' => $actor
+            'actor' => $actor,
+            'programs' => $programs
         ]);
     }
 
@@ -90,7 +91,7 @@ class ActorController extends AbstractController
      */
     public function delete(Request $request, Actor $actor): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$actor->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $actor->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($actor);
             $entityManager->flush();

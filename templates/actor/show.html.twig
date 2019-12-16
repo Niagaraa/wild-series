@@ -11,7 +11,7 @@
         <div class="programs">
 
             {% for program in programs %}
-                <a class="card" href="{{ path('show_program', {'slug': program.slug }) }}"
+                <a class="card" href="{{ path('program_show', {'slug': program.slug }) }}"
                    style="width: 18rem;">
                     <img src="{{ program.poster }}" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -23,9 +23,9 @@
         </div>
     </div>
 
-    <a href="{{ path('actor_index') }}">back to list</a>
+    <a href="{{ path('actor_index') }}" class="btn">Retour à la liste des acteurs</a>
 
-    <a href="{{ path('actor_edit', {'slug': actor.slug}) }}">edit</a>
+    <a href="{{ path('actor_edit', {'slug': actor.slug}) }}" class="btn">Modifier</a>
 
     {{ include('actor/_delete_form.html.twig') }}
 {% endblock %}

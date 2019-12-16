@@ -19,8 +19,7 @@ class ActorType extends AbstractType
                 'class' => Program::class,
                 'choice_label' => 'title',
                 'expanded' => true,
-                'multiple' => true,
-                'by_reference' => false
+                'multiple' => true
             ])
         ;
     }
