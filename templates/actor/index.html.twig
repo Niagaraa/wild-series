@@ -1,16 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Actor index{% endblock %}
+{% block title %}Acteurs{% endblock %}
 
 {% block body %}
-    <h1>Actor index</h1>
+    <h1>Tous les acteurs</h1>
 
     <table class="table">
         <thead>
             <tr>
                 <th></th>
-                <th>Name</th>
-                <th>actions</th>
+                <th>Nom</th>
+                <th>Admin</th>
             </tr>
         </thead>
         <tbody>
@@ -19,13 +19,13 @@
                 <td>{{ loop.index }}</td>
                 <td>{{ actor.name }}</td>
                 <td>
-                    <a href="{{ path('actor_show', {'slug': actor.slug}) }}">show</a>
-                    <a href="{{ path('actor_edit', {'slug': actor.slug}) }}">edit</a>
+                    <a href="{{ path('actor_show', {'slug': actor.slug}) }}" class="btn">Détails</a>
+                    <a href="{{ path('actor_edit', {'slug': actor.slug}) }}" class="btn">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="3">no records found</td>
+                <td colspan="3">Aucun acteur dans la liste</td>
             </tr>
         {% endfor %}
         </tbody>
