@@ -45,8 +45,8 @@ class ProgramController extends AbstractController
             $entityManager->flush();
 
             $email = (new Email())
-                ->from('x.aline2711@gmail.com')
-                ->to('x.aline2711@gmail.com')
+                ->from($this->getParameter('mailer_from'))
+                ->to($this->getParameter('mailer_from'))
                 ->subject('Une nouvelle série vient d\'être publiée !')
                 ->html('<p>Une nouvelle série vient d\'être publiée sur Wild Séries !</p>');
 
