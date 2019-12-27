@@ -1,21 +1,25 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    <div class="container">
-        <h1>Bienvenue sur {{ website }}!</h1>
+    <div class="home">
 
-        <a href="{{ path('wild_show', { 'slug': "penny-dreadful" }) }}">
-            Testing show() method from WildController with a real program's slug.
-        </a>
-        <br>
-        <a href="{{ path('wild_index') }}">
-            Testing index() method from WildController to view all programs.
-        </a>
-        <br>
-        <a href="{{ path('show_category', {'categoryName': 'horreur'}) }}">
-            Testing findBy() method from WildController to view programs per category.
-        </a>
+        <div class="container-fluid">
+            <h1><i class="fas fa-star"></i> Nouveautés</h1>
+            <hr>
+
+            <div class="d-flex justify-content-around">
+                {% for program in programs %}
+
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="{{ program.poster }}" alt="Affiche de {{ program.title }}">
+                        <div class="card-body">
+                            <h2 class="card-title">{{ program.title }}</h2>
+                        </div>
+                    </div>
+
+                {% endfor %}
+            </div>
+        </div>
 
     </div>
-
 {% endblock %}
