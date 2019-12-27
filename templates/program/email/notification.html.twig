@@ -1,0 +1,13 @@
+{% extends 'layout_email.html.twig' %}
+
+{% block body %}
+    <div style="background-color:#00011c; padding: 10px; text-align: center;">
+        <h1 style="color: #ffeffc; font-weight: bold;">Du nouveau il y a, jeune padawan !</h1>
+    </div>
+
+    <div style="background-color: #ffeffc; padding: 10px; text-align: center; font-size: 16pt;">
+        <p>Viens-vite, la série <b>{{ program.title }}</b> à été ajoutée au Wild Series !</p>
+        <p>Pour en savoir plus, c'est par <a href="https://127.0.0.1:8000/program/{{ program.slug }}">ici</a> !</p>
+
+    </div>
+{% endblock %}
