@@ -25,7 +25,7 @@
                 <td>{{ program.title }}</td>
                 <td>{{ program.summary }}</td>
                 <td>
-                    <a href="{{ path('show_program', {'programName': program.slug }) }}" class="btn">Détails</a>
+                    <a href="{{ path('program_show', {'slug': program.slug }) }}" class="btn">Détails</a>
                     <a href="{{ path('program_edit', {'slug': program.slug }) }}" class="btn">Modifier</a>
                 </td>
             </tr>
