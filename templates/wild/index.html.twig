@@ -1,22 +1,36 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}All programs{% endblock %}
+{% block title %}Index{% endblock %}
 
 {% block body %}
-    <div class="container">
-        <h1>Toutes les séries de la table program : </h1>
 
-        {% for program in programs %}
-            <div>
-                <h2>{{ loop.index }} / {{ program.title }} - Catégorie : {{ program.category.name }}</h2>
-                <p>{{ program.summary }}</p>
-            </div>
-        {% else %}
-            Aucune série trouvée.
-        {% endfor %}
-
-        <a href="{{ path('app_index') }}">
-            Retour à l'accueil
-        </a>
+    <h1>Toutes les séries disponibles : </h1>
+    <div class="container-fluid home wild-index">
+        <div class="card-deck justify-content-around">
+            {% for program in programs %}
+                <div class="flex-wrap">
+                    <div class="card" style="width: 18rem;">
+                        <a href="{{ path('show_program', {'programName': program.slug }) }}">
+                            <img class="card-img-top" src="{{ program.poster }}" alt="Card image cap">
+                        </a>
+                        <p class="category"
+                           style="background-color: {{ program.category.color }}">
+                            <small>{{ program.category.name }}</small></p>
+                        <div class="card-body">
+                            <h2 class="card-title">{{ program.title }}</h2>
+                            <p class="card-text">{{ program.summary }}</p>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            {% else %}
+                Aucune série trouvée.
+            {% endfor %}
+        </div>
     </div>
+
+<a href="{{ path('app_index') }}" class="btn">
+        Retour à l'accueil
+
+
 {% endblock %}

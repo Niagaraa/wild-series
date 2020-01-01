@@ -3,4 +3,39 @@
         object-fit: cover;
         height: 25rem;
     }
+
+    .card {
+        margin: 2rem;
+    }
+}
+
+.wild-index {
+    h2 {
+        position: absolute;
+        padding: 0;
+        margin: 0;
+        font-size: 1.3rem;
+    }
+
+    .card-title {
+        text-align: center;
+        width: 85%;
+        color:var(--primary)
+    }
+
+    .category {
+        position: absolute;
+        margin-top: 2rem;
+        padding: 0.2rem;
+    }
+
+    .card-body {
+        height: 18rem;
+    }
+
+    .card-text {
+        overflow: auto;
+        height: 10rem;
+        margin-top: 5rem;
+    }
 }

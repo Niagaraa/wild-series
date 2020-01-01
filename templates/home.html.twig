@@ -9,14 +9,14 @@
 
             <div class="d-flex justify-content-around">
                 {% for program in programs %}
-
-                    <div class="card" style="width: 18rem;">
-                        <img class="card-img-top" src="{{ program.poster }}" alt="Affiche de {{ program.title }}">
-                        <div class="card-body">
-                            <h2 class="card-title">{{ program.title }}</h2>
+                    <a href="{{ path('show_program', {'programName': program.slug }) }}">
+                        <div class="card" style="width: 18rem;">
+                            <img class="card-img-top" src="{{ program.poster }}" alt="Affiche de {{ program.title }}">
+                            <div class="card-body">
+                                <h2 class="card-title">{{ program.title }}</h2>
+                            </div>
                         </div>
-                    </div>
-
+                    </a>
                 {% endfor %}
             </div>
         </div>

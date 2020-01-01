@@ -15,18 +15,19 @@
             <div class="content">
                 <h1>{{ program.title }}</h1>
                 <hr>
-                {{ program.summary }}
-                {% for season in seasons %}
-                    <div class="seasons">
-                        <a class="btn" role="button"
-                           href="{{ path('show_season', {'slug': season.slug }) }}">Saison {{ season.number }}</a>
-                    </div>
-                {% endfor %}
+                <p>{{ program.summary }}</p>
 
-                <strong>Acteur :</strong>
+                <div class="seasons">
+                    {% for season in seasons %}
+                        <a class="btn" role="button"
+                           href="{{ path('show_season', {'id': season.id }) }}">Saison {{ season.number }}</a>
+                    {% endfor %}
+                </div>
+
+                <h2>Casting</h2>
                 <ul>
                     {% for actor in program.actors %}
-                        <li><a href="{{ path('actor_show', {'slug':actor.slug}) }}">{{ actor.name }}</a> </li>
+                        <li><a href="{{ path('actor_show', {'slug':actor.slug}) }}">{{ actor.name }}</a></li>
                     {% else %}
                         <li>Aucun acteur pour cette série</li>
                     {% endfor %}
