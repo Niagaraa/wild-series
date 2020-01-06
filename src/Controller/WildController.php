@@ -8,6 +8,7 @@ use App\Entity\Program;
 use App\Entity\Season;
 use App\Form\CategoryType;
 use App\Form\ProgramSearchType;
+use App\Service\Slugify;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -184,16 +185,17 @@ Class WildController extends AbstractController
     }
 
     /**
-     * @Route("/wild/episode/{id}", name="show_episode")
+     * @Route("/wild/episode/{slug}", name="show_episode")
      * @param Episode $episode
      * @param $season
      * @return Response
      */
 
-    public function showEpisode(Episode $episode): Response
+    public function showEpisode(Episode $episode, Slugify $slugify): Response
     {
-        $season = $episode->getSeason();
+        $episode->setSlug($slugify->generate($episode->getTitle()));
 
+        $season = $episode->getSeason();
         $program = $season->getProgram();
 
         return $this->render('wild/episode.html.twig', [
