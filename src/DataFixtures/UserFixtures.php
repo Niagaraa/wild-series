@@ -21,7 +21,7 @@ class UserFixtures extends Fixture
         // Création d’un utilisateur de type “auteur”
         $subscriber = new User();
 
-        $subscriber->setEmail('mrdthlkn@gmail.com');
+        $subscriber->setEmail('sub@gmail.com');
         $subscriber->setRoles(['ROLE_SUBSCRIBER']);
         $subscriber->setPassword($this->passwordEncoder->encodePassword(
             $subscriber,
@@ -32,7 +32,7 @@ class UserFixtures extends Fixture
 
         // Création d’un utilisateur de type “administrateur”
         $admin = new User();
-        $admin->setEmail('x.aline2711@gmail.com');
+        $admin->setEmail('admin@gmail.com');
         $admin->setRoles(['ROLE_ADMIN']);
         $admin->setPassword($this->passwordEncoder->encodePassword(
             $admin,
