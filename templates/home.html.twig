@@ -1,31 +1,31 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    <div class="home">
 
-        <div class="container-fluid">
-            <h1><i class="fas fa-star"></i> Nouveautés</h1>
-            <hr>
+    <div class="container-fluid home">
 
-            <div class="d-flex justify-content-around">
-                {% for program in programs %}
-                    <a href="{{ path('show_program', {'programName': program.slug }) }}">
-                        <div class="card" style="width: 18rem;">
+        <h1><i class="fas fa-star"></i> Nouveautés</h1>
+        <hr>
+
+        <div class="card-deck justify-content-around">
+            {% for program in programs %}
+                <div class="flex-wrap">
+                    <div class="card" style="width: 18rem;">
+                        <a href="{{ path('show_program', {'programName': program.slug }) }}">
                             <img class="card-img-top" src="{{ program.poster }}" alt="Affiche de {{ program.title }}">
-                            <div class="card-body">
-                                <h2 class="card-title">{{ program.title }}</h2>
-                            </div>
+                        </a>
+                        <p class="category" style="background-color: {{ program.category.color }}">
+                            <small>{{ program.category.name }}</small></p>
+                        <div class="card-body">
+                            <h2 class="card-title">{{ program.title }}</h2>
                         </div>
-                    </a>
-                {% endfor %}
-            </div>
-
-            <div class="d-flex justify-content-center">
-                <a href="{{ path('wild_index') }}" class="btn">Voir toutes les séries</a>
-            </div>
-
-
+                    </div>
+                </div>
+            {% endfor %}
         </div>
 
+        <div class="d-flex justify-content-center">
+            <a href="{{ path('wild_index') }}" class="btn">Voir toutes les séries</a>
+        </div>
     </div>
 {% endblock %}

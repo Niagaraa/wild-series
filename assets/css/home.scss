@@ -7,14 +7,24 @@
     .card {
         margin: 2rem;
     }
+
+    .card-body {
+        display: flex;
+        height: 8rem;
+        align-items: center;
+        justify-content: center;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+        color: var((--primary));
+        text-align: center;
+    }
 }
 
 .wild-index {
     h2 {
         position: absolute;
-        padding: 0;
-        margin: 0;
-        font-size: 1.3rem;
     }
 
     .card-title {
@@ -23,14 +33,9 @@
         color:var(--primary)
     }
 
-    .category {
-        position: absolute;
-        margin-top: 2rem;
-        padding: 0.2rem;
-    }
-
     .card-body {
         height: 18rem;
+        display: block;
     }
 
     .card-text {
@@ -38,4 +43,10 @@
         height: 10rem;
         margin-top: 5rem;
     }
+}
+
+.category {
+    position: absolute;
+    margin-top: 2rem;
+    padding: 0.2rem;
 }
