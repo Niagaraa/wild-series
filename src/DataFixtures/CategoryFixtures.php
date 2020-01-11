@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 use App\Entity\Category;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
+use Faker\Factory;
 
 class CategoryFixtures extends Fixture
 {
@@ -18,9 +19,12 @@ class CategoryFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
+        $faker = Factory::create();
+
         foreach (self::CATEGORIES as $key => $categoryName) {
             $category = new Category();
             $category->setName($categoryName);
+            $category->setColor($faker->hexColor);
             $this->addReference('categorie_' . $key, $category);
 
             $manager->persist($category);

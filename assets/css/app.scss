@@ -6,7 +6,9 @@
 
 @import "program";
 @import "episodes";
+@import "episode";
 @import "actor";
+@import "comments";
 
 @mixin primary-title {
     font-family: 'Orbitron', sans-serif;

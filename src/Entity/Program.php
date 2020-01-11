@@ -54,6 +54,11 @@ class Program
      */
     private $slug;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $poster2;
+
     public function __construct()
     {
         $this->seasons = new ArrayCollection();
@@ -180,6 +185,18 @@ class Program
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    public function getPoster2(): ?string
+    {
+        return $this->poster2;
+    }
+
+    public function setPoster2(?string $poster2): self
+    {
+        $this->poster2 = $poster2;
 
         return $this;
     }
