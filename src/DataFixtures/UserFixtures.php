@@ -23,6 +23,7 @@ class UserFixtures extends Fixture
 
         $subscriber->setEmail('sub@gmail.com');
         $subscriber->setRoles(['ROLE_SUBSCRIBER']);
+        $subscriber->setUsername('John Doe');
         $subscriber->setPassword($this->passwordEncoder->encodePassword(
             $subscriber,
             'subscriberpassword'
@@ -34,6 +35,7 @@ class UserFixtures extends Fixture
         $admin = new User();
         $admin->setEmail('admin@gmail.com');
         $admin->setRoles(['ROLE_ADMIN']);
+        $admin->setUsername('Jane Doe');
         $admin->setPassword($this->passwordEncoder->encodePassword(
             $admin,
             'adminpassword'
@@ -42,14 +44,5 @@ class UserFixtures extends Fixture
         $manager->persist($admin);
 
         // Sauvegarde des 2 nouveaux utilisateurs :
-
-        $user = new User();
-
-        $user->setPassword($this->passwordEncoder->encodePassword(
-            $user,
-            'newpassword'
-        ));
-
-        $manager->flush();
     }
 }
