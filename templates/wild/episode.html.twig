@@ -12,17 +12,70 @@
             </div>
         </div>
 
-        <div class="card">
-            <div class="card-body">
-                <h3>Commentaires</h3>
-                <p>{{ episode.synopsis }}</p>
-            </div>
-        </div>
-
         <a href="{{ path('show_season', {'id': season.id }) }}" class="btn" role="button">Saison {{ season.number }}
             de {{ program.title }} </a>
         <a href="{{ path('show_program', {'programName': program.title }) }}" class="btn" role="button">Détails
             de {{ program.title }}</a>
+
+        <h2>Commentaires</h2>
+        <hr>
+
+        {% if app.user %}
+            {{ include('comment/_form.html.twig') }}
+        {% else %}
+            Vous devez être connecté pour poster un commentaire.
+        {% endif %}
+
+        {% for comment in comments %}
+            <div class="card">
+                <div class="card-body">
+                    <b>{{ comment.author.username }}</b>
+                    <p>{{ comment.rate }}</p>
+                    {% if comment.rate == 1 %}
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                    {% endif %}
+
+                    {% if comment.rate == 5 %}
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                    {% endif %}
+
+                    {% if comment.rate == 5 %}
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                    {% endif %}
+
+                    {% if comment.rate == 5 %}
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                    {% endif %}
+
+                    {% if comment.rate == 5 %}
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                        <i class="fas fa-star text-warning"></i>
+                    {% endif %}
+
+                    <p>{{ comment.comment }}</p>
+                </div>
+            </div>
+        {% endfor %}
+
     </div>
 
 {% endblock %}

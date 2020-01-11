@@ -29,7 +29,7 @@
                 <li class="nav-item">
                     {% if app.user %}
                 <li><a href="{{ path('app_logout') }}" class="nav-link">Déconnexion</a></li>
-                <li><a href="#" class="nav-link">{{ app.user.email }}</a></li>
+                <li><a href="#" class="nav-link">{{ app.user.username }}</a></li>
                 {% else %}
                     <a href="{{ path('app_login') }}" class="nav-link">Connexion</a>
                 {% endif %}
