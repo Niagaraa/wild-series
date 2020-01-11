@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CommentRepository")
@@ -23,6 +24,10 @@ class Comment
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Range(
+     *      min = 1,
+     *      max = 5,
+     * )
      */
     private $rate;
 

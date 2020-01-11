@@ -30,13 +30,16 @@
                     {% if app.user %}
                 <li><a href="{{ path('app_logout') }}" class="nav-link">Déconnexion</a></li>
                 <li><a href="#" class="nav-link">{{ app.user.username }}</a></li>
-                {% else %}
-                    <a href="{{ path('app_login') }}" class="nav-link">Connexion</a>
-                {% endif %}
-                </li>
                 <li class="nav-item">
-                    <img src="https://www.paroissesaintcyrlecole.fr/wp-content/uploads/2018/10/female-default-profile.png"
+                    <img src="{{ app.user.picture }}"
                          class="profil-pic rounded-circle">
+                </li>
+                {% else %}
+                    <li>
+                        <a href="{{ path('app_login') }}" class="nav-link">Connexion</a>
+
+                    </li>
+                {% endif %}
                 </li>
             </ul>
 

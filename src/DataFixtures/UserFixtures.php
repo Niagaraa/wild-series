@@ -6,6 +6,7 @@ use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Faker;
 
 class UserFixtures extends Fixture
 {
@@ -18,24 +19,28 @@ class UserFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
-        // Création d’un utilisateur de type “auteur”
-        $subscriber = new User();
+        $faker = Faker\Factory::create('fr_FR');
 
-        $subscriber->setEmail('sub@gmail.com');
-        $subscriber->setRoles(['ROLE_SUBSCRIBER']);
-        $subscriber->setUsername('John Doe');
-        $subscriber->setPassword($this->passwordEncoder->encodePassword(
-            $subscriber,
-            'subscriberpassword'
+        // Création d’un utilisateur de type “auteur”
+        $member = new User();
+
+        $member->setEmail('member@gmail.com');
+        $member->setRoles(['ROLE_member']);
+        $member->setUsername('John Doe');
+        $member->setPicture($faker->imageUrl(200,200));
+        $member->setPassword($this->passwordEncoder->encodePassword(
+            $member,
+            'memberpassword'
         ));
 
-        $manager->persist($subscriber);
+        $manager->persist($member);
 
         // Création d’un utilisateur de type “administrateur”
         $admin = new User();
         $admin->setEmail('admin@gmail.com');
         $admin->setRoles(['ROLE_ADMIN']);
-        $admin->setUsername('Jane Doe');
+        $admin->setUsername('Eleanor Shellstrop');
+        $admin->setPicture($faker->imageUrl(200,200));
         $admin->setPassword($this->passwordEncoder->encodePassword(
             $admin,
             'adminpassword'

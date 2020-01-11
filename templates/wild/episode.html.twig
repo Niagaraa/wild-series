@@ -1,7 +1,15 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <div class="posters">
+        <img src="{{ program.poster }}" alt="" class="poster-episode1 mt-5">
+        {% if program.poster2 is defined %}
+        <img src="{{ program.poster2 }}" alt="" class="poster-episode2">
+        {% endif %}
+    </div>
+
     <div class="container episode">
+
         <h1>{{ program.title }}</h1>
         <h2>Saison {{ season.number }}, Episode {{ episode.number }}</h2>
 
@@ -26,55 +34,57 @@
             Vous devez être connecté pour poster un commentaire.
         {% endif %}
 
-        {% for comment in comments %}
-            <div class="card">
-                <div class="card-body">
-                    <b>{{ comment.author.username }}</b>
-                    <p>{{ comment.rate }}</p>
-                    {% if comment.rate == 1 %}
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                    {% endif %}
+        <div class="comments d-flex">
+            <div class="card-deck justify-content-around">
+                {% for comment in episode.comments %}
+                    <div class="row">
+                        <div class="card">
+                            <div class="card-body">
+                                <p><img src="{{ comment.author.picture }}" alt="" class="profil-pic rounded-circle">
+                                    <b>{{ comment.author.username }}</b></p>
+                                <p class="">{% if comment.rate == 1 %}
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="far fa-star"></i><i class="far fa-star"></i><i
+                                                class="far fa-star"></i><i
+                                                class="far fa-star"></i>
+                                    {% endif %}
 
-                    {% if comment.rate == 5 %}
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                    {% endif %}
+                                    {% if comment.rate == 2 %}
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="far fa-star"></i><i class="far fa-star"></i><i
+                                            class="far fa-star"></i>
+                                    {% endif %}
 
-                    {% if comment.rate == 5 %}
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                    {% endif %}
+                                    {% if comment.rate == 3 %}
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="far fa-star"></i><i class="far fa-star"></i>
+                                    {% endif %}
 
-                    {% if comment.rate == 5 %}
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                    {% endif %}
+                                    {% if comment.rate == 4 %}
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="far fa-star"></i>
+                                    {% endif %}
 
-                    {% if comment.rate == 5 %}
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                        <i class="fas fa-star text-warning"></i>
-                    {% endif %}
-
-                    <p>{{ comment.comment }}</p>
-                </div>
+                                    {% if comment.rate == 5 %}
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                        <i class="fas fa-star text-warning"></i>
+                                    {% endif %}</p>
+                                <p>{{ comment.comment }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
-        {% endfor %}
+        </div>
 
     </div>
 
