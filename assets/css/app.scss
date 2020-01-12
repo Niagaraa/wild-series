@@ -56,12 +56,16 @@ h3 {
 }
 
 .btn {
-    background-color: var(--primary);
-    color: var(--secondary);
     margin: 1rem;
 }
 
-.btn:hover {
+.btn-primary {
+    background-color: var(--primary);
+    color: var(--secondary);
+    border:none;
+}
+
+.btn-primary:hover {
     background-color: var(--secondary);
 }
 
