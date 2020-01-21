@@ -5,7 +5,7 @@
 {% block body %}
     <h1>Tous les épisodes</h1>
 
-    <a href="{{ path('episode_new') }}" class="btn">Ajouter un épisode</a>
+    <a href="{{ path('episode_new') }}" class="btn btn-primary">Ajouter un épisode</a>
 
     <table class="table">
         <thead>
@@ -23,8 +23,8 @@
                 <td>{{ episode.title }}</td>
                 <td>{{ episode.synopsis }}</td>
                 <td>
-                    <a href="{{ path('episode_show', {'slug': episode.slug}) }}" class="btn">Détails</a>
-                    <a href="{{ path('episode_edit', {'slug': episode.slug}) }}" class="btn">Modifier</a>
+                    <a href="{{ path('episode_show', {'slug': episode.slug}) }}" class="btn btn-primary">Détails</a>
+                    <a href="{{ path('episode_edit', {'slug': episode.slug}) }}" class="btn btn-primary">Modifier</a>
                 </td>
             </tr>
         {% else %}

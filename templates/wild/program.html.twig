@@ -8,7 +8,7 @@
             <div class="pic">
                 <img src="{{ program.poster }}" alt="Affiche de {{ program.title }}" class="poster">
                 <a class="btn btn-primary" href="{{ path('wild_index') }}">
-                    Retour à l'accueil
+                    <i class="fas fa-reply mr-2"></i> Retour à l'accueil
                 </a>
             </div>
 
@@ -25,7 +25,7 @@
                 <div class="seasons">
                     {% for season in seasons %}
                         <a class="btn btn-primary" role="button"
-                           href="{{ path('show_season', {'id': season.id }) }}">Saison {{ season.number }}</a>
+                           href="{{ path('show_season', {'id': season.id }) }}"><i class="fas fa-film mr-2"></i> Saison {{ season.number }}</a>
                     {% endfor %}
                 </div>
 

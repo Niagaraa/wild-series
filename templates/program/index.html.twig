@@ -5,7 +5,7 @@
 {% block body %}
     <h1>Toutes les séries</h1>
 
-    <a href="{{ path('program_new') }}" class="btn">Ajouter une série</a>
+    <a href="{{ path('program_new') }}" class="btn btn-primary">Ajouter une série</a>
 
     <table class="table">
         <thead>
@@ -25,8 +25,8 @@
                 <td>{{ program.title }}</td>
                 <td>{{ program.summary }}</td>
                 <td>
-                    <a href="{{ path('program_show', {'slug': program.slug }) }}" class="btn">Détails</a>
-                    <a href="{{ path('program_edit', {'slug': program.slug }) }}" class="btn">Modifier</a>
+                    <a href="{{ path('program_show', {'slug': program.slug }) }}" class="btn btn-primary">Détails</a>
+                    <a href="{{ path('program_edit', {'slug': program.slug }) }}" class="btn btn-primary">Modifier</a>
                 </td>
             </tr>
         {% else %}
