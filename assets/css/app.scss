@@ -27,7 +27,7 @@
 :root {
     --light: #ffeffc;
     --secondary: #ffad66;
-    --primary: #630836;
+    --primary: #6c003c;
     --dark: #00011c;
 }
 
@@ -67,6 +67,7 @@ h3 {
 
 .btn-primary:hover {
     background-color: var(--secondary);
+    border: none;
 }
 
 a {

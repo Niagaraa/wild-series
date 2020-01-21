@@ -22,18 +22,18 @@ class UserFixtures extends Fixture
         $faker = Faker\Factory::create('fr_FR');
 
         // Création d’un utilisateur de type “auteur”
-        $member = new User();
+        $subscriber = new User();
 
-        $member->setEmail('member@gmail.com');
-        $member->setRoles(['ROLE_member']);
-        $member->setUsername('John Doe');
-        $member->setPicture($faker->imageUrl(200,200));
-        $member->setPassword($this->passwordEncoder->encodePassword(
-            $member,
-            'memberpassword'
+        $subscriber->setEmail('sub@gmail.com');
+        $subscriber->setRoles(['ROLE_SUBSCRIBER']);
+        $subscriber->setUsername('John Doe');
+        $subscriber->setPicture($faker->imageUrl(200,200));
+        $subscriber->setPassword($this->passwordEncoder->encodePassword(
+            $subscriber,
+            'subscriberpassword'
         ));
 
-        $manager->persist($member);
+        $manager->persist($subscriber);
 
         // Création d’un utilisateur de type “administrateur”
         $admin = new User();

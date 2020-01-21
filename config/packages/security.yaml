@@ -2,10 +2,10 @@ security:
   encoders:
     App\Entity\User:
       algorithm: auto
+
   role_hierarchy:
     ROLE_SUBSCRIBER: ROLE_USER
     ROLE_ADMIN: ROLE_SUBSCRIBER
-    ROLE_SUPER_ADMIN: [ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
 
   # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
   providers:
@@ -36,7 +36,9 @@ security:
   # Easy way to control access for large sections of your site
   # Note: Only the *first* access control that matches will be used
   access_control:
-    - { path: ^/program, roles: ROLE_SUBSCRIBER}
-#    - { path: ^/admin, roles: ROLE_ADMIN }
-#    - { path: ^/profile, roles: ROLE_SUBSCRIBER }
-#    - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY}
+    - { path: ^/category, roles: ROLE_ADMIN}
+    - { path: ^/program, roles: ROLE_ADMIN}
+    - { path: ^/season, roles: ROLE_ADMIN}
+    - { path: ^/episode, roles: ROLE_ADMIN}
+    - { path: ^/actor, roles: ROLE_ADMIN}
+    - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY}

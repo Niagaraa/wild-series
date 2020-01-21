@@ -3,8 +3,11 @@
 namespace App\Controller;
 
 use App\Entity\Comment;
+use App\Entity\Episode;
+use App\Entity\Program;
 use App\Form\CommentType;
 use App\Repository\CommentRepository;
+use App\Service\Slugify;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -81,14 +84,16 @@ class CommentController extends AbstractController
     /**
      * @Route("/{id}", name="comment_delete", methods={"DELETE"})
      */
-    public function delete(Request $request, Comment $comment): Response
+    public function delete(Request $request, Slugify $slugify, Comment $comment): Response
     {
+        $episode = $comment->getEpisode()->getSlug();
+
         if ($this->isCsrfTokenValid('delete'.$comment->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($comment);
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('comment_index');
+        return $this->redirectToRoute('show_episode', ['slug' => $episode]);
     }
 }
