@@ -9,10 +9,12 @@ use App\Service\Slugify;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @Route("/episode")
+ * @IsGranted("ROLE_ADMIN")
  */
 class EpisodeController extends AbstractController
 {

@@ -4,7 +4,7 @@
     <div class="posters">
         <img src="{{ program.poster }}" alt="" class="poster-episode1 mt-5">
         {% if program.poster2 is defined %}
-        <img src="{{ program.poster2 }}" alt="" class="poster-episode2">
+            <img src="{{ program.poster2 }}" alt="" class="poster-episode2">
         {% endif %}
     </div>
 
@@ -20,71 +20,18 @@
             </div>
         </div>
 
-        <a href="{{ path('show_season', {'id': season.id }) }}" class="btn" role="button">Saison {{ season.number }}
-            de {{ program.title }} </a>
-        <a href="{{ path('show_program', {'programName': program.title }) }}" class="btn" role="button">Détails
-            de {{ program.title }}</a>
+        <a href="{{ path('show_program', {'programName': program.title }) }}" class="btn btn-primary" role="button">
+            <i class="fas fa-reply mr-2"></i> Retour à {{ program.title }}
+        </a>
+
+        <a href="{{ path('show_season', {'id': season.id }) }}" class="btn btn-primary" role="button">
+            <i class="fas fa-film mr-2"></i> Saison {{ season.number }} de {{ program.title }}
+        </a>
 
         <h2>Commentaires</h2>
         <hr>
 
-        {% if app.user %}
-            {{ include('comment/_form.html.twig') }}
-        {% else %}
-            Vous devez être connecté pour poster un commentaire.
-        {% endif %}
-
-        <div class="comments d-flex">
-            <div class="card-deck justify-content-around">
-                {% for comment in episode.comments %}
-                    <div class="row">
-                        <div class="card">
-                            <div class="card-body">
-                                <p><img src="{{ comment.author.picture }}" alt="" class="profil-pic rounded-circle">
-                                    <b>{{ comment.author.username }}</b></p>
-                                <p class="">{% if comment.rate == 1 %}
-                                        <i class="fas fa-star text-warning"></i>
-                                        <i class="far fa-star"></i><i class="far fa-star"></i><i
-                                                class="far fa-star"></i><i
-                                                class="far fa-star"></i>
-                                    {% endif %}
-
-                                    {% if comment.rate == 2 %}
-                                        <i class="fas fa-star text-warning"></i>
-                                        <i class="fas fa-star text-warning"></i>
-                                        <i class="far fa-star"></i><i class="far fa-star"></i><i
-                                            class="far fa-star"></i>
-                                    {% endif %}
-
-                                    {% if comment.rate == 3 %}
-                                        <i class="fas fa-star text-warning"></i>
-                                        <i class="fas fa-star text-warning"></i>
-                                        <i class="fas fa-star text-warning"></i>
-                                        <i class="far fa-star"></i><i class="far fa-star"></i>
-                                    {% endif %}
-
-                                    {% if comment.rate == 4 %}
-                                        <i class="fas fa-star text-warning"></i>
-                                        <i class="fas fa-star text-warning"></i>
-                                        <i class="fas fa-star text-warning"></i>
-                                        <i class="fas fa-star text-warning"></i>
-                                        <i class="far fa-star"></i>
-                                    {% endif %}
-
-                                    {% if comment.rate == 5 %}
-                                        <i class="fas fa-star text-warning"></i>
-                                        <i class="fas fa-star text-warning"></i>
-                                        <i class="fas fa-star text-warning"></i>
-                                        <i class="fas fa-star text-warning"></i>
-                                        <i class="fas fa-star text-warning"></i>
-                                    {% endif %}</p>
-                                <p>{{ comment.comment }}</p>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
+        {{ include('wild/_comment.html.twig') }}
 
     </div>
 

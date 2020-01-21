@@ -7,20 +7,25 @@
         <div class="container">
             <div class="pic">
                 <img src="{{ program.poster }}" alt="Affiche de {{ program.title }}" class="poster">
-                <a class="btn" href="{{ path('wild_index') }}">
-                    Retour à l'accueil
+                <a class="btn btn-primary" href="{{ path('wild_index') }}">
+                    <i class="fas fa-reply mr-2"></i> Retour à l'accueil
                 </a>
             </div>
 
             <div class="content">
-                <h1>{{ program.title }}</h1>
+                <div class="d-flex">
+                    <h1>{{ program.title }}</h1>
+                    {% if is_granted('ROLE_ADMIN') %}
+                        <a href="{{ path('program_edit', { 'slug': program.slug} ) }}" class="btn btn-danger">Éditer</a>
+                    {% endif %}
+                </div>
                 <hr>
                 <p>{{ program.summary }}</p>
 
                 <div class="seasons">
                     {% for season in seasons %}
-                        <a class="btn" role="button"
-                           href="{{ path('show_season', {'id': season.id }) }}">Saison {{ season.number }}</a>
+                        <a class="btn btn-primary" role="button"
+                           href="{{ path('show_season', {'id': season.id }) }}"><i class="fas fa-film mr-2"></i> Saison {{ season.number }}</a>
                     {% endfor %}
                 </div>
 

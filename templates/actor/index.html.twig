@@ -5,6 +5,8 @@
 {% block body %}
     <h1>Tous les acteurs</h1>
 
+    <a href="{{ path('actor_new') }}" class="btn btn-primary">Ajouter un acteur</a>
+
     <table class="table">
         <thead>
             <tr>
@@ -19,8 +21,8 @@
                 <td>{{ loop.index }}</td>
                 <td>{{ actor.name }}</td>
                 <td>
-                    <a href="{{ path('actor_show', {'slug': actor.slug}) }}" class="btn">Détails</a>
-                    <a href="{{ path('actor_edit', {'slug': actor.slug}) }}" class="btn">Modifier</a>
+                    <a href="{{ path('actor_show', {'slug': actor.slug}) }}" class="btn btn-primary">Détails</a>
+                    <a href="{{ path('actor_edit', {'slug': actor.slug}) }}" class="btn btn-primary">Modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -30,6 +32,4 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('actor_new') }}" class="btn">Ajouter un acteur</a>
 {% endblock %}
