@@ -1,0 +1,66 @@
+{% if app.user %}
+    {{ include('comment/_form.html.twig') }}
+{% else %}
+    Vous devez être connecté pour poster un commentaire.
+{% endif %}
+
+<div class="comments d-flex justify-content-center">
+    <div class="card-deck justify-content-around">
+        {% for comment in episode.comments %}
+            <div class="row">
+                <div class="card">
+                    <div class="card-body">
+                        <p>
+                            {% if is_granted('ROLE_SUBSCRIBER') %}
+                                {% if (app.user.id == comment.author.id) or (is_granted('ROLE_ADMIN')) %}
+                                    {% include 'comment/_delete_form.html.twig' %}
+                                {% endif %}
+                            {% endif %}
+
+                            <img src="{{ comment.author.picture }}" alt="" class="profil-pic rounded-circle">
+                            <b>{{ comment.author.username }}</b>
+                        </p>
+
+                        <p class="">{% if comment.rate == 1 %}
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="far fa-star"></i><i class="far fa-star"></i><i
+                                        class="far fa-star"></i><i
+                                        class="far fa-star"></i>
+                            {% endif %}
+
+                            {% if comment.rate == 2 %}
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="far fa-star"></i><i class="far fa-star"></i><i
+                                    class="far fa-star"></i>
+                            {% endif %}
+
+                            {% if comment.rate == 3 %}
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="far fa-star"></i><i class="far fa-star"></i>
+                            {% endif %}
+
+                            {% if comment.rate == 4 %}
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="far fa-star"></i>
+                            {% endif %}
+
+                            {% if comment.rate == 5 %}
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                                <i class="fas fa-star text-warning"></i>
+                            {% endif %}</p>
+                        <p>{{ comment.comment }}</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
