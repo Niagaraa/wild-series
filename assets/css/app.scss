@@ -79,3 +79,8 @@ a:hover {
     color:var(--secondary);
     text-decoration:underline var(--primary);
 }
+
+.table-dark {
+    background-color: var(--dark);
+    color: var(--secondary)
+}
