@@ -3,11 +3,17 @@
 {% block title %}Modifier une série{% endblock %}
 
 {% block body %}
-    <h1>Modifier une série</h1>
 
-    {{ include('program/_form.html.twig', {'button_label': 'Modifier'}) }}
+    <div class="container mt-4">
+        <a href="{{ path('program_index') }}" class="btn btn-primary">
+            <i class="fas fa-reply mr-2"></i> Retour à la liste des séries
+        </a>
 
-    <a href="{{ path('program_index') }}" class="btn">Retour</a>
+        <h1>Modifier une série</h1>
+        <hr>
 
-    {{ include('program/_delete_form.html.twig') }}
+        {{ include('program/_form.html.twig', {'button_label': 'Enregistrer les modifications'}) }}
+
+    </div>
+
 {% endblock %}

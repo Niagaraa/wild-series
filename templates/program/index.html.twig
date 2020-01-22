@@ -3,37 +3,48 @@
 {% block title %}Séries{% endblock %}
 
 {% block body %}
-    <h1>Toutes les séries</h1>
 
-    <a href="{{ path('program_new') }}" class="btn btn-primary">Ajouter une série</a>
+    <div class="container mt-5 admin-actor">
+        <h1>Toutes les séries</h1>
+        <hr>
 
-    <table class="table">
-        <thead>
-        <tr>
-            <th></th>
-            <th>Affiche</th>
-            <th>Titre</th>
-            <th>Résumé</th>
-            <th>Admin</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for program in programs %}
+        <a href="{{ path('program_new') }}" class="btn btn-primary mb-5">
+            <i class="fas fa-plus mr-2"></i> Ajouter une série
+        </a>
+
+        <table class="table table-striped">
+            <thead class="table table-dark text-center">
             <tr>
-                <td>{{ loop.index }}</td>
-                <td><img src="{{ program.poster }}" class="poster" alt=""></td>
-                <td>{{ program.title }}</td>
-                <td>{{ program.summary }}</td>
-                <td>
-                    <a href="{{ path('program_show', {'slug': program.slug }) }}" class="btn btn-primary">Détails</a>
-                    <a href="{{ path('program_edit', {'slug': program.slug }) }}" class="btn btn-primary">Modifier</a>
-                </td>
+                <th></th>
+                <th>Affiche</th>
+                <th>Titre</th>
+                <th>Résumé</th>
+                <th class="w-25">Gestion de la série</th>
             </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">Aucune série enregistrée</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            {% for program in programs %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td><img src="{{ program.poster }}" class="poster" alt=""></td>
+                    <td>{{ program.title }}</td>
+                    <td>{{ program.summary }}</td>
+                    <td class="align-items-center">
+                        <div class="buttons">
+                            <a href="{{ path('program_show', {'slug': program.slug }) }}"
+                               class="btn btn-primary"><i class="far fa-eye mr-2"></i> Détails</a>
+                            <a href="{{ path('program_edit', {'slug': program.slug }) }}"
+                               class="btn btn-primary"><i class="fas fa-cog mr-2"></i> Modifier</a>
+                            {{ include('program/_delete_form.html.twig') }}
+                        </div>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">Aucune série enregistrée</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}
