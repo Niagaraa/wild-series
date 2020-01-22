@@ -23,7 +23,10 @@ class SeasonController extends AbstractController
     public function index(SeasonRepository $seasonRepository): Response
     {
         return $this->render('season/index.html.twig', [
-            'seasons' => $seasonRepository->findAll(),
+            'seasons' => $seasonRepository->findBy([], [
+                'program' => 'DESC',
+                'number' => 'ASC'
+            ]),
         ]);
     }
 
@@ -85,7 +88,7 @@ class SeasonController extends AbstractController
      */
     public function delete(Request $request, Season $season): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$season->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $season->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($season);
             $entityManager->flush();
