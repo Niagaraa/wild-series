@@ -4,9 +4,20 @@
 
 {% block body %}
 
-    <div class="container">
-        <h1>{{ actor.name }}</h1>
-        <p>A joué dans :</p>
+    <div class="container mt-4">
+
+        <a href="{{ path('actor_index') }}" class="btn btn-primary">
+            <i class="fas fa-reply mr-2"></i> Retour à la liste des acteurs
+        </a>
+
+        <div class="d-flex align-items-center">
+            <h1 class="mt-1">{{ actor.name }}</h1>
+            <a href="{{ path('actor_edit', {'slug': actor.slug}) }}" class="btn btn-primary">
+                <i class="fas fa-cog mr-2"></i> Modifier</a>
+        </div>
+        <hr>
+
+        <p class="mt-5"><b class="text-uppercase">{{ actor.name }}</b> a joué dans :</p>
 
         <div class="programs">
 
@@ -21,11 +32,6 @@
             {% endfor %}
 
         </div>
+
     </div>
-
-    <a href="{{ path('actor_index') }}" class="btn">Retour à la liste des acteurs</a>
-
-    <a href="{{ path('actor_edit', {'slug': actor.slug}) }}" class="btn">Modifier</a>
-
-    {{ include('actor/_delete_form.html.twig') }}
 {% endblock %}
