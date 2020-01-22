@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f0bf0f05339ebf5103c874290a9a8dcc",
+    "content-hash": "cd53859ec1b8e7ea91f81a483fb37b6e",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1143,6 +1143,57 @@
                 "reflection"
             ],
             "time": "2018-06-14T14:45:07+00:00"
+        },
+        {
+            "name": "dzango/twig-truncate-extension",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dzango/TwigTruncateExtension.git",
+                "reference": "9ea51fc1613d0e4fec97660bae7e23d413f70b83"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dzango/TwigTruncateExtension/zipball/9ea51fc1613d0e4fec97660bae7e23d413f70b83",
+                "reference": "9ea51fc1613d0e4fec97660bae7e23d413f70b83",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "twig/twig": "~1.12|~2.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.8||~5.4"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Dzango\\Twig\\Extension\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dzango SARL",
+                    "email": "info@dzango.com",
+                    "homepage": "http://www.dzango.com"
+                }
+            ],
+            "description": "A Twig extension to truncate text while preserving HTML tags",
+            "homepage": "https://github.com/dzango/TwigTruncateExtension",
+            "keywords": [
+                "truncate",
+                "twig"
+            ],
+            "time": "2017-12-02T03:28:58+00:00"
         },
         {
             "name": "egulias/email-validator",
