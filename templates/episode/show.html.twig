@@ -3,28 +3,45 @@
 {% block title %}Episode{% endblock %}
 
 {% block body %}
-    <h1>Episode</h1>
 
-    <table class="table">
-        <tbody>
+    <div class="container mt-4">
+
+        <a href="{{ path('episode_index') }}" class="btn btn-primary">
+            <i class="fas fa-reply mr-2"></i> Retour à la liste des épisiodes
+        </a>
+
+        <div class="d-flex align-items-center">
+            <h1>{{ episode.number }}) {{ episode.title }}</h1>
+            <a href="{{ path('episode_edit', {'slug': episode.slug}) }}" class="btn btn-primary">
+                <i class="fas fa-cog mr-2"></i> Modifier
+            </a>
+        </div>
+        <hr>
+
+        <table class="table table-striped show-episode">
+            <tbody>
             <tr>
-                <th>Titre</th>
-                <td>{{ episode.title }}</td>
+                <th class="table-dark">Série</th>
+                <td>{{ episode.season.program.title }}</td>
             </tr>
             <tr>
-                <th>Episode n°</th>
+                <th class="table-dark">Saison n°</th>
+                <td>{{ episode.season.number }}</td>
+            </tr>
+            <tr>
+                <th class="table-dark">Episode n°</th>
                 <td>{{ episode.number }}</td>
             </tr>
             <tr>
-                <th>Synopsis</th>
+                <th class="table-dark">Titre</th>
+                <td>{{ episode.title }}</td>
+            </tr>
+            <tr>
+                <th class="table-dark">Synopsis</th>
                 <td>{{ episode.synopsis }}</td>
             </tr>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
 
-    <a href="{{ path('episode_index') }}" class="btn">Retour à la liste des épisiodes</a>
-
-    <a href="{{ path('episode_edit', {'slug': episode.slug}) }}" class="btn">Modifier</a>
-
-    {{ include('episode/_delete_form.html.twig') }}
+    </div>
 {% endblock %}

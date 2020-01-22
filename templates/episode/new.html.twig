@@ -3,9 +3,16 @@
 {% block title %}Nouvel Episode{% endblock %}
 
 {% block body %}
-    <h1>Ajouter un nouvel épisode</h1>
+    <div class="container mt-4">
 
-    {{ include('episode/_form.html.twig') }}
+        <a href="{{ path('episode_index') }}" class="btn btn-primary">
+            <i class="fas fa-reply mr-2"></i> Retour à la liste des épisodes
+        </a>
 
-    <a href="{{ path('episode_index') }}" class="btn">Retour à la liste des épisodes</a>
+        <h1>Ajouter un nouvel épisode</h1>
+        <hr>
+
+        {{ include('episode/_form.html.twig') }}
+    </div>
+
 {% endblock %}
