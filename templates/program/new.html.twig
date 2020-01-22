@@ -3,9 +3,15 @@
 {% block title %}Nouvelle série{% endblock %}
 
 {% block body %}
-    <h1>Ajouter une nouvelle série</h1>
+    <div class="container mt-4">
+        <a href="{{ path('program_index') }}" class="btn btn-primary">
+            <i class="fas fa-reply mr-2"></i> Retour à la liste des séries
+        </a>
 
-    {{ include('program/_form.html.twig') }}
+        <h1>Ajouter une nouvelle série</h1>
+        <hr>
 
-    <a href="{{ path('program_index') }}" class="btn btn-primary">Retour</a>
+        {{ include('program/_form.html.twig') }}
+    </div>
+
 {% endblock %}
