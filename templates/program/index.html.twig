@@ -28,7 +28,7 @@
                     <td>{{ loop.index }}</td>
                     <td><img src="{{ program.poster }}" class="poster" alt=""></td>
                     <td>{{ program.title }}</td>
-                    <td>{{ program.summary }}</td>
+                    <td>{{ program.summary|truncate(550) }}</td>
                     <td class="align-items-center">
                         <div class="buttons">
                             <a href="{{ path('program_show', {'slug': program.slug }) }}"
