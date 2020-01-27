@@ -1,12 +1,44 @@
 {% extends 'base.html.twig' %}
 
-{% block body %}
-    <div class="container">
-        {% form_theme form 'bootstrap_4_layout.html.twig' %}
-        {{ form_start(form) }}
-        {{ form_row(form.name) }}
-        <button class="btn btn-primary">{{ button_label|default('Ajouter') }}</button>
-        {{ form_end(form) }}
-    </div>
+{% block title %}Categories{% endblock %}
 
+{% block body %}
+    <div class="container mt-5 mb-5">
+        <h1>Toutes les catégories</h1>
+        <hr>
+
+        <a href="{{ path('category_new') }}" class="btn btn-primary mb-5">
+            <i class="fas fa-plus mr-2"></i> Ajouter une catégorie
+        </a>
+
+        <table class="table table-striped text-center">
+            <thead class="table-dark">
+            <tr>
+                <th>Catégorie</th>
+                <th>Couleur</th>
+                <th>Gestion de la catégorie</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for category in categories %}
+                <tr>
+                    <td  class="align-middle">{{ category.name }}</td>
+                    <td  class="align-middle"style="background-color: {{ category.color }}">
+                        {{ category.color }}
+                    </td>
+                    <td class="d-flex justify-content-center">
+                        <a href="{{ path('category_edit', {'id': category.id}) }}" class="btn btn-primary">
+                            <i class="fas fa-cog mr-2"></i> Modifier
+                        </a>
+                        {{ include('category/_delete_form.html.twig') }}
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4">no records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}
