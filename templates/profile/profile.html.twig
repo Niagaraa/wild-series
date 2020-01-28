@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container mt-5">
+        <h1>Mon compte</h1>
+        <hr>
+    </div>
+
+    <div class="container d-flex justify-content-center mt-5">
+        <div class="account d-flex flex-column align-items-center">
+
+            <div class="square mt-2"></div>
+            <img src="{{ user.picture }}"
+                 class="rounded-circle profil-pic"
+                 alt="Photo de profil de {{ user.username }}">
+
+
+            <h2 class="mt-3">{{ user.username }}</h2>
+
+            <div class="w-100 mt-3 text-left">
+                <p class="label">E-Mail</p>
+                <p>{{ user.email }}</p>
+
+                <p class="label">Biographie</p>
+                {% if user.bio is not null %}
+                    <p>{{ user.bio }}</p>
+                {% else %}
+                    <p><i>Vous n'avez pas écrit de biographie.</i></p>
+                {% endif %}
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

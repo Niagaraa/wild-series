@@ -1,0 +1,31 @@
+.account {
+    background-color: var(--primary);
+    color: var(--light);
+    padding: 2rem;
+    border-radius: 30px;
+    width: 50%;
+
+    $pic-size: 10rem;
+
+    .square {
+        width: $pic-size - 1;
+        height: $pic-size - 1;
+        background-color: var(--secondary);
+        transform: rotate(45deg);
+        position: absolute;
+    }
+
+    .profil-pic {
+        width: $pic-size;
+        height: $pic-size;
+        position: relative;
+    }
+
+    h2 {
+        border-bottom: 1px solid var(--secondary);
+    }
+
+    .label {
+        color: var(--secondary);
+    }
+}
