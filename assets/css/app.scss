@@ -4,6 +4,7 @@
 @import "nav";
 @import "home";
 @import "admin";
+@import "pages";
 
 @import "program";
 @import "episodes";
@@ -69,6 +70,16 @@ h3 {
 .btn-primary:hover {
     background-color: var(--secondary);
     border: none;
+}
+
+.btn-secondary {
+    background-color: var(--secondary);
+    border:none;
+    color:var(--dark);
+}
+
+.btn-secondary:hover {
+    background-color: var(--dark);
 }
 
 a {
