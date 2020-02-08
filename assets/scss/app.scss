@@ -1,3 +1,4 @@
+@import "vars";
 @import '~bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
@@ -26,15 +27,8 @@
     text-align: justify;
 }
 
-:root {
-    --light: #ffeffc;
-    --secondary: #ffad66;
-    --primary: #6c003c;
-    --dark: #00011c;
-}
-
 body {
-    background-color: var(--light);
+    background-color: $light;
     @include default-font;
 }
 
@@ -54,44 +48,23 @@ h3 {
     @include primary-title;
     font-size: 2rem;
     padding: 0.5rem;
-    color: var(--primary)
+    color: $primary
 }
 
 .btn {
     margin: 1rem;
 }
 
-.btn-primary {
-    background-color: var(--primary);
-    color: var(--secondary);
-    border:none;
-}
-
-.btn-primary:hover {
-    background-color: var(--secondary);
-    border: none;
-}
-
-.btn-secondary {
-    background-color: var(--secondary);
-    border:none;
-    color:var(--dark);
-}
-
-.btn-secondary:hover {
-    background-color: var(--dark);
-}
-
 a {
-    color:var(--primary);
+    color:$primary;
 }
 
 a:hover {
-    color:var(--secondary);
-    text-decoration:underline var(--primary);
+    color:$secondary;
+    text-decoration:underline $primary;
 }
 
 .table-dark {
-    background-color: var(--dark);
-    color: var(--secondary)
+    background-color: $dark;
+    color: $secondary
 }
