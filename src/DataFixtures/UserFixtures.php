@@ -24,13 +24,13 @@ class UserFixtures extends Fixture
         // Création d’un utilisateur de type “auteur”
         $subscriber = new User();
 
-        $subscriber->setEmail('sub@gmail.com');
+        $subscriber->setEmail('member@gmail.com');
         $subscriber->setRoles(['ROLE_SUBSCRIBER']);
         $subscriber->setUsername('John Doe');
-        $subscriber->setPicture($faker->imageUrl(200,200));
+        $subscriber->setPicture($faker->imageUrl(200,200, 'people'));
         $subscriber->setPassword($this->passwordEncoder->encodePassword(
             $subscriber,
-            'subscriberpassword'
+            'memberpass'
         ));
 
         $manager->persist($subscriber);
@@ -39,11 +39,11 @@ class UserFixtures extends Fixture
         $admin = new User();
         $admin->setEmail('admin@gmail.com');
         $admin->setRoles(['ROLE_ADMIN']);
-        $admin->setUsername('Eleanor Shellstrop');
-        $admin->setPicture($faker->imageUrl(200,200));
+        $admin->setUsername('Hayley Marshall');
+        $admin->setPicture($faker->imageUrl(200,200, 'people'));
         $admin->setPassword($this->passwordEncoder->encodePassword(
             $admin,
-            'adminpassword'
+            'adminpass'
         ));
 
         $manager->persist($admin);

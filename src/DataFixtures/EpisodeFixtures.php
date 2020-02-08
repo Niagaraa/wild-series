@@ -16,7 +16,7 @@ class EpisodeFixtures extends Fixture implements DependentFixtureInterface
         $slugify = new Slugify();
         $this->faker = Factory::create();
 
-        for ($i = 0; $i < 200; $i++) {
+        for ($i = 0; $i < 50; $i++) {
             $episode = new Episode();
             $episode->setTitle($this->faker->text(50));
             $episode->setNumber($this->faker->randomDigit);
