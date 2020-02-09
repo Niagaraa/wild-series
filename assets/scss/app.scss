@@ -3,15 +3,15 @@
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
 @import "nav";
-@import "home";
+@import "wild/home";
 @import "admin";
 @import "pages";
 
-@import "program";
-@import "episodes";
-@import "episode";
-@import "actor";
-@import "comments";
+@import "wild/program";
+@import "wild/episodes";
+@import "wild/episode";
+@import "wild/actor";
+@import "wild/comments";
 
 @mixin primary-title {
     font-family: 'Orbitron', sans-serif;
