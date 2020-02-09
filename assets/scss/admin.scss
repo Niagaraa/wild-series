@@ -1,5 +1,6 @@
 @import "admin/actor";
 @import "admin/episode";
+@import "admin/program";
 
 .admin {
     .buttons {
@@ -12,4 +13,12 @@
             width: 7rem;
         }
     }
+}
+
+.label-form {
+    color:$primary;
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    font-size: $font-size-lg;
+    margin-top: 1.5rem;
 }

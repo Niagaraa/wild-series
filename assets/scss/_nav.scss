@@ -2,7 +2,13 @@
     background-color: var(--dark);
 }
 
+$pic-size: 3rem;
+
 .profil-pic {
-    width: 2.5em;
-    height: 2.5em;
+    width: $pic-size;
+    height: $pic-size;
+}
+
+.logo {
+    height:$pic-size - 0.5;
 }

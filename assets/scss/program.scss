@@ -3,6 +3,14 @@
         display: flex;
         margin-top: 3rem;
     }
+
+    .btn {
+        width: max-content;
+    }
+
+    .poster {
+        width: 80rem;
+    }
 }
 
 .pic {
@@ -10,10 +18,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.poster {
-    width: 15rem;
 }
 
 .content {

@@ -1,9 +1,6 @@
 @import "vars";
 @import '~bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
-@import '~@fortawesome/fontawesome-free/scss/regular';
-@import '~@fortawesome/fontawesome-free/scss/solid';
-@import '~@fortawesome/fontawesome-free/scss/brands';
 
 @import "nav";
 @import "home";
@@ -31,9 +28,9 @@
 }
 
 body {
-    background-color: $light;
-    padding-top:3rem;
     @include default-font;
+    background-color: $light;
+    min-height: 100vh;
 }
 
 h1 {
@@ -55,6 +52,10 @@ h3 {
     color: $primary
 }
 
+hr {
+    border-top: double 4px $secondary;
+}
+
 .btn {
     margin: 1rem;
 }
@@ -70,5 +71,5 @@ a:hover {
 
 .table-dark {
     background-color: $dark;
-    color: $secondary
+    color: $secondary;
 }

@@ -1,31 +1,23 @@
 .account {
-    background-color: var(--primary);
-    color: var(--light);
-    padding: 2rem;
-    border-radius: 30px;
-    width: 50%;
 
-    $pic-size: 10rem;
-
-    .square {
-        width: $pic-size - 1;
-        height: $pic-size - 1;
-        background-color: var(--secondary);
-        transform: rotate(45deg);
+    .top {
+        background-color: $primary;
+        height: 6rem;
+        width: 100%;
         position: absolute;
     }
+
+    $pic-size: 8rem;
 
     .profil-pic {
         width: $pic-size;
         height: $pic-size;
         position: relative;
-    }
-
-    h2 {
-        border-bottom: 1px solid var(--secondary);
+        margin-top: 2rem;
+        border: solid 6px #fff;
     }
 
     .label {
-        color: var(--secondary);
+        color: darken($secondary, 20%);
     }
 }
