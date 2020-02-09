@@ -5,36 +5,43 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\EpisodeRepository")
+ * @UniqueEntity("title", message="Ce titre existe déjà")
  */
 class Episode
 {
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", unique=true)
      */
     private $id;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Season", inversedBy="episodes", cascade={"persist"})
+     * @Assert\NotBlank(message="Vous devez sélectionner la saison associée.")
      */
     private $season;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
+     * @Assert\NotBlank(message="Vous devez ajouter le titre de l'épisode.")
      */
     private $title;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="Vous devez ajouter le numéro de l'épisode.")
      */
     private $number;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank(message="Vous devez ajouter un résumé de l'épisode.")
      */
     private $synopsis;
 

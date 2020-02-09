@@ -3,53 +3,95 @@
 {% block title %}Connexion{% endblock %}
 
 {% block body %}
-    <div class="container mt-5">
+    <div class="container login mt-5">
 
-        <form method="post">
-            {% if error %}
-                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-            {% endif %}
+        <h1 class="h1">Se connecter</h1>
+        <hr>
 
-            {% if app.user %}
-                <div class="mb-3">
-                    You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
-                </div>
-            {% endif %}
+        <div class="d-flex justify-content-center">
+            <form method="post" class="text-center">
+                {% if error %}
+                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
 
-            <h1 class="h1">Se connecter</h1>
-            <hr>
-            <div class="register">
-                <label for="inputEmail">Email</label>
-                <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control"
-                       required
-                       autofocus>
-                <label for="inputPassword">Mot de passe</label>
-                <input type="password" name="password" id="inputPassword" class="form-control" required>
-
-                <input type="hidden" name="_csrf_token"
-                       value="{{ csrf_token('authenticate') }}"
-                >
-
-                {#
-                    Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-                    See https://symfony.com/doc/current/security/remember_me.html
-
-                    <div class="checkbox mb-3">
-                        <label>
-                            <input type="checkbox" name="_remember_me"> Remember me
-                        </label>
+                {% if app.user %}
+                    <div class="mb-3">
+                        Vous êtes connectée en tant que {{ app.user.username }}, <a href="{{ path('app_logout') }}">
+                            <i class="fas fa-sign-out-alt mr-2"></i> Déconnexion</a>
                     </div>
-                #}
+                {% endif %}
 
-                <button class="btn btn-secondary mt-5" type="submit">
-                    <i class="fas fa-power-off mr-2"></i> Se connecter
-                </button>
+                <div class="card mt-5">
 
-                <a href="{{ path('app_register') }}" class="btn btn-secondary mt-5" type="submit">
-                    <i class="fas fa-sign-in-alt mr-2"></i> S'inscrire
-                </a>
-        </form>
+                    <h2 class="card-header text-center p-4 bg-primary mb-3">
+                        <strong class="text-light">Bienvenue sur Wild Series</strong>
+                    </h2>
+
+                    <div class="card-body px-lg-5 pt-0">
+
+                        <div class="uk-margin mt-4">
+                            <label for="inputEmail">Email</label>
+                            <div class="uk-inline">
+                                <span class="uk-form-icon" uk-icon="icon: mail"></span>
+                                <input type="email" value="{{ last_username }}" name="email" id="inputEmail"
+                                       class="form-control uk-input"
+                                       required
+                                       autofocus>
+                            </div>
+                        </div>
+
+                        <div class="uk-margin">
+                            <label for="inputPassword">Mot de passe</label>
+                            <div class="uk-inline">
+                                <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                                <input type="password" name="password" id="inputPassword"
+                                       class="form-control uk-input"
+                                       required>
+                            </div>
+                        </div>
+
+                        <input type="hidden" name="_csrf_token"
+                               value="{{ csrf_token('authenticate') }}">
+
+                        <div class="d-flex align-items-center flex-column">
+                            <!-- Remember me -->
+
+                            {#                        Uncomment this section and add a remember_me option below your firewall to activate remember me#}
+                            {#                        functionality.#}
+                            {#                        See https://symfony.com/doc/current/security/remember_me.html#}
+
+                            {#                        <div class="checkbox mb-3">#}
+                            {#                            <label>#}
+                            {#                                <input type="checkbox" name="_remember_me"> Remember me#}
+                            {#                            </label>#}
+                            {#                        </div>#}
+
+                            {#                        <div class="form-check">#}
+                            {#                            <input type="checkbox" class="form-check-input" id="materialLoginFormRemember">#}
+                            {#                            <label class="form-check-label" for="materialLoginFormRemember">Remember me</label>#}
+                            {#                        </div>#}
+                            {#                    </div>#}
+                            {#                    <div>#}
+
+                            {#                        <a href="">Forgot password?</a>#}
+                            {#                    </div>#}
+                            {#                </div>#}
+
+
+                            <button class="btn btn-primary mt-5 btn-block"
+                                    type="submit">
+                                <i class="fas fa-power-off mr-2"></i> Se connecter
+                            </button>
+
+                            <p>Pas encore membre ?
+                                <a href="{{ path('app_register') }}" class="btn btn-secondary" type="submit">
+                                    <i class="fas fa-sign-in-alt mr-2"></i> S'inscrire
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
-    </div>
-
 {% endblock %}

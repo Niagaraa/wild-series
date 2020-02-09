@@ -5,6 +5,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\SeasonRepository")
@@ -14,22 +15,25 @@ class Season
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", unique=true)
      */
     private $id;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Program", inversedBy="seasons", cascade={"persist"} )
+     * @Assert\NotBlank(message="Vous devez choisir la série associée.")
      */
     private $program;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="Vous devez entrer l'année de sortie")
      */
     private $year;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank(message="Vous devez ajouter un résumé.")
      */
     private $description;
 
@@ -40,6 +44,7 @@ class Season
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\NotBlank(message="Vous devez ajouter le numéro de la saison.")
      */
     private $number;
 

@@ -32,6 +32,7 @@
 
 body {
     background-color: $light;
+    padding-top:3rem;
     @include default-font;
 }
 

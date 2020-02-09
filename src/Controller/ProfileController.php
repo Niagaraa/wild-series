@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ProfileController extends AbstractController
 {
     /**
-     * @Route("/my-profile", name="user_profile")
+     * @Route("/mon-compte", name="user_profile")
      * @IsGranted("ROLE_SUBSCRIBER")
      */
 
