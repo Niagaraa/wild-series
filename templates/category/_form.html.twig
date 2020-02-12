@@ -1,6 +1,11 @@
-{{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn btn-primary">
-        <i class="fas fa-save mr-2"></i> {{ button_label|default('Enregistrer') }}
-    </button>
+<div class="label-form">{{ form_label(form.name) }}</div>
+{{ form_widget(form.name) }}
+<div class="label-form">{{ form_label(form.color) }}</div>
+{{ form_widget(form.color) }}
+
+<div class="d-flex justify-content-center"></div>
+<button class="btn btn-primary">
+    <i class="fas fa-save mr-2"></i> {{ button_label|default('Enregistrer') }}
+</button>
+
 {{ form_end(form) }}
