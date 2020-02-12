@@ -22,3 +22,11 @@
     font-size: $font-size-lg;
     margin-top: 1.5rem;
 }
+
+.form-error-message {
+    text-transform: initial;
+}
+
+.form-error-message, .form-error-icon {
+    font-family: 'Abel', sans-serif;
+}
