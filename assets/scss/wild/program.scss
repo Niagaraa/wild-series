@@ -1,15 +1,11 @@
 .program {
     .container {
-        display: flex;
         margin-top: 3rem;
     }
 
     .btn {
         width: max-content;
-    }
-
-    .poster {
-        width: 80rem;
+        height: min-content;
     }
 }
 
@@ -20,15 +16,22 @@
     align-items: center;
 }
 
-.content {
+.synopsis {
     margin-left: 3rem;
 }
 
 .seasons {
-    display: inline-block;
+    display: flex;
+    width: 100%;
+    margin: 2rem;
+    justify-content: center;
 }
 
 .casting {
     column-count:3;
     column-fill: balance;
+}
+
+.poster {
+    width: 15rem;
 }

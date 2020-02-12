@@ -2,13 +2,10 @@
     {% form_theme form 'bootstrap_4_layout.html.twig' %}
     {{ form_start(form) }}
     <div class="label-form">{{ form_label(form.title) }}</div>
-    {{ form_errors(form.title) }}
     {{ form_widget(form.title) }}
     <div class="label-form">{{ form_label(form.summary) }}</div>
-    {{ form_errors(form.summary) }}
     {{ form_widget(form.summary) }}
     <div class="label-form">{{ form_label(form.poster) }}</div>
-    {{ form_errors(form.poster) }}
     {{ form_widget(form.poster) }}
     <div class="label-form">{{ form_label(form.poster2) }}</div>
     {{ form_widget(form.poster2) }}
