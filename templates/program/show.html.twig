@@ -4,7 +4,7 @@
 
 {% block body %}
 
-    <div class="container mt-4">
+    <div class="container mt-4 program-admin">
         <a href="{{ path('program_index') }}" class="btn btn-primary">
             <i class="fas fa-reply mr-2"></i> Retour à la liste des séries
         </a>
@@ -34,9 +34,9 @@
             <tr>
                 <th class="table-dark">Affiche(s)</th>
                 <td>
-                    <img src="{{ program.poster }}" alt="" class="poster">
+                    <img src="{{ program.poster }}" alt="Affiche de {{ program.title }}" class="poster">
                     {% if program.poster2 is defined %}
-                    <img src="{{ program.poster2 }}" alt="" class="poster ml-3">
+                    <img src="{{ program.poster2 }}" alt="Affiche de {{ program.title }}" class="poster ml-3">
                     {% endif %}
                 </td>
             </tr>

@@ -14,6 +14,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 55rem;
 }
 
 .synopsis {
@@ -30,8 +31,4 @@
 .casting {
     column-count:3;
     column-fill: balance;
-}
-
-.poster {
-    width: 15rem;
 }
