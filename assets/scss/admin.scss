@@ -1,0 +1,32 @@
+@import "admin/actor";
+@import "admin/episode";
+@import "admin/program";
+
+.admin {
+    .buttons {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .btn {
+            width: 7rem;
+        }
+    }
+}
+
+.label-form {
+    color:$primary;
+    font-family: 'Orbitron', sans-serif;
+    text-transform: uppercase;
+    font-size: $font-size-lg;
+    margin-top: 1.5rem;
+}
+
+.form-error-message {
+    text-transform: initial;
+}
+
+.form-error-message, .form-error-icon {
+    font-family: 'Abel', sans-serif;
+}

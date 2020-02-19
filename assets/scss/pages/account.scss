@@ -1,0 +1,23 @@
+.account {
+
+    .top {
+        background-color: $primary;
+        height: 6rem;
+        width: 100%;
+        position: absolute;
+    }
+
+    $pic-size: 8rem;
+
+    .profil-pic {
+        width: $pic-size;
+        height: $pic-size;
+        position: relative;
+        margin-top: 2rem;
+        border: solid 6px #fff;
+    }
+
+    .label {
+        color: darken($secondary, 20%);
+    }
+}

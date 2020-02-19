@@ -30,7 +30,7 @@ class UserFixtures extends Fixture
         $subscriber->setPicture($faker->imageUrl(200,200));
         $subscriber->setPassword($this->passwordEncoder->encodePassword(
             $subscriber,
-            'subscriberpassword'
+            'memberpass'
         ));
 
         $manager->persist($subscriber);
@@ -43,7 +43,7 @@ class UserFixtures extends Fixture
         $admin->setPicture($faker->imageUrl(200,200));
         $admin->setPassword($this->passwordEncoder->encodePassword(
             $admin,
-            'adminpassword'
+            'adminpass'
         ));
 
         $manager->persist($admin);

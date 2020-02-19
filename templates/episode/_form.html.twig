@@ -1,7 +1,19 @@
 <div class="container">
-    {% form_theme form 'bootstrap_4_layout.html.twig' %}
     {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn btn-primary"><i class="fas fa-save mr-2"></i> {{ button_label|default('Enregistrer') }}</button>
+
+    <div class="label-form">{{ form_label(form.title) }}</div>
+    {{ form_widget(form.title) }}
+    <div class="label-form">{{ form_label(form.number) }}</div>
+    {{ form_widget(form.number) }}
+    <div class="label-form">{{ form_label(form.synopsis) }}</div>
+    {{ form_widget(form.synopsis) }}
+    <div class="label-form">{{ form_label(form.season) }}</div>
+    {{ form_widget(form.season) }}
+
+    <div class="d-flex justify-content-center">
+        <button class="btn btn-primary">
+            <i class="fas fa-save mr-2"></i> {{ button_label|default('Enregistrer') }}
+        </button>
+    </div>
     {{ form_end(form) }}
 </div>

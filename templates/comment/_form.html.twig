@@ -1,7 +1,13 @@
 <div class="container">
-    {% form_theme form 'bootstrap_4_layout.html.twig' %}
     {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn btn-primary"><i class="far fa-comment mr-2"></i> {{ button_label|default('Envoyer') }}</button>
+    <div class="label-form">{{ form_label (form.comment) }}</div>
+    {{ form_widget(form.comment) }}
+    <div class="label-form">{{ form_label (form.rate) }}</div>
+    {{ form_widget(form.rate) }}
+    <div class="d-flex justify-content-center">
+        <button class="btn btn-primary">
+            <i class="far fa-comment mr-2"></i> {{ button_label|default('Envoyer') }}
+        </button>
+    </div>
     {{ form_end(form) }}
 </div>

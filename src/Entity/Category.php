@@ -5,21 +5,27 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\CategoryRepository")
+ * @UniqueEntity("name", message="Ce genre existe déjà.")
+ * @UniqueEntity("color", message="Cette couleur est déjà définie pour un autre genre.")
  */
 class Category
 {
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", unique=true)
      */
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\Column(type="string", length=100, unique=true)
+     * @Assert\NotBlank(message="Vous devez remplir ce champ.")
+     * @Assert\Length(max="255", maxMessage="Le nom de la catégorie ne peut pas exédé {{ limit }} caractères.")
      */
     private $name;
 
@@ -29,7 +35,7 @@ class Category
     private $programs;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, unique=true)
      */
     private $color;
 

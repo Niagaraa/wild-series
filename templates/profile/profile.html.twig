@@ -3,33 +3,34 @@
 {% block body %}
 
     <div class="container mt-5">
-        <h1>Mon compte</h1>
+        <h1><i class="fas fa-user mr-2"></i> Mon compte</h1>
         <hr>
     </div>
 
     <div class="container d-flex justify-content-center mt-5">
-        <div class="account d-flex flex-column align-items-center">
+        <div class="account d-flex flex-column align-items-center card">
 
-            <div class="square mt-2"></div>
+            <div class="top"></div>
             <img src="{{ user.picture }}"
                  class="rounded-circle profil-pic"
                  alt="Photo de profil de {{ user.username }}">
 
+            <div class="card-body">
+                <h2 class="mt-3">{{ user.username }}</h2>
 
-            <h2 class="mt-3">{{ user.username }}</h2>
+                <div class="mt-5 text-left">
+                    <p class="label">E-Mail</p>
+                    <p>{{ user.email }}</p>
 
-            <div class="w-100 mt-3 text-left">
-                <p class="label">E-Mail</p>
-                <p>{{ user.email }}</p>
+                    <p class="label">Biographie</p>
+                    {% if user.bio is not null %}
+                        <p><i class="fas fa-quote-left mr-2"></i> {{ user.bio }}</p>
+                    {% else %}
+                        <p><i><i class="fas fa-quote-left mr-2"></i> Vous n'avez pas écrit de biographie.</i></p>
+                    {% endif %}
+                </div>
 
-                <p class="label">Biographie</p>
-                {% if user.bio is not null %}
-                    <p>{{ user.bio }}</p>
-                {% else %}
-                    <p><i>Vous n'avez pas écrit de biographie.</i></p>
-                {% endif %}
             </div>
-
         </div>
     </div>
 
