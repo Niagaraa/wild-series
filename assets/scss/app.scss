@@ -1,0 +1,76 @@
+@import "vars";
+@import '~bootstrap';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+@import "nav";
+@import "wild/home";
+@import "admin";
+@import "pages";
+
+@import "wild/program";
+@import "wild/episodes";
+@import "wild/episode";
+@import "wild/actor";
+@import "wild/comments";
+
+@mixin primary-title {
+    font-family: 'Orbitron', sans-serif;
+}
+
+@mixin secondary-title {
+    font-family: 'Notable', sans-serif;
+}
+
+@mixin default-font {
+    font-family: 'Abel', sans-serif;
+    font-size: 1.15rem;
+    text-align: justify;
+}
+
+body {
+    @include default-font;
+    background-color: $light;
+    min-height: 100vh;
+    padding-top:4rem;
+}
+
+h1 {
+    @include primary-title;
+    font-size: 2.5rem;
+    padding: 0.5rem;
+}
+
+h2 {
+    @include secondary-title;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+}
+
+h3 {
+    @include primary-title;
+    font-size: 2rem;
+    padding: 0.5rem;
+    color: $primary
+}
+
+hr {
+    border-top: double 4px $secondary;
+}
+
+.btn {
+    margin: 1rem;
+}
+
+a {
+    color:$primary;
+}
+
+a:hover {
+    color:$secondary;
+    text-decoration:underline $primary;
+}
+
+.table-dark {
+    background-color: $dark;
+    color: $secondary;
+}

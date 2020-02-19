@@ -1,5 +1,40 @@
 {% extends 'base.html.twig' %}
 
+{% block title %}Index{% endblock %}
+
 {% block body %}
-    <h1>Bienvenue sur {{ website }}</h1>
+
+    <h1>Toutes les séries disponibles : </h1>
+
+    <div class="container-fluid home wild-index">
+
+        <div class="card-deck justify-content-around">
+
+            {% for program in programs %}
+                <div class="flex-wrap">
+                    <div class="card" style="width: 18rem;">
+                        <a href="{{ path('show', {'programName': program.slug }) }}">
+                            <img class="card-img-top" src="{{ program.poster }}" alt="Affiche de {{ program.title }}">
+                        </a>
+                        <p class="category" style="background-color: {{ program.category.color }}">
+                            <small>{{ program.category.name }}</small>
+                        </p>
+                        <div class="card-body">
+                            <h2 class="card-title">{{ program.title }}</h2>
+                            <p class="card-text">{{ program.summary }}</p>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            {% else %}
+                Aucune série trouvée.
+            {% endfor %}
+        </div>
+    </div>
+
+<a href="{{ path('app_index') }}" class="btn">
+        Retour à l'accueil
+
+
+>>>>>>> fe5d611bfd0dba222761b52245d4811c1fbadcc4
 {% endblock %}

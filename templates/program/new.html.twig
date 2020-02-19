@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle série{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+        <a href="{{ path('program_index') }}" class="btn btn-primary">
+            <i class="fas fa-reply mr-2"></i> Retour à la liste des séries
+        </a>
+
+        <h1>Ajouter une nouvelle série</h1>
+        <hr>
+
+        {{ include('program/_form.html.twig') }}
+    </div>
+
+{% endblock %}

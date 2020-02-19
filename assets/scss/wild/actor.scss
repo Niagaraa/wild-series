@@ -1,0 +1,22 @@
+.programs {
+    display: flex;
+
+    .card {
+        margin: 2rem;
+    }
+
+    .card-img-top {
+        height: 25rem;
+        object-fit: cover;
+    }
+
+    .card-body {
+        text-align: center;
+        align-items: center;
+        display: flex;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+}

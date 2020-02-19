@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Acteurs{% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <h1 class="mt-5">Tous les acteurs</h1>
+        <hr>
+
+        <a href="{{ path('actor_new') }}" class="btn btn-primary mt-3 mb-5"><i class="fas fa-plus mr-2"></i> Ajouter un acteur</a>
+
+        <table class="table table-striped text-center">
+            <thead class="table-dark">
+            <tr>
+                <th></th>
+                <th>Nom de l'acteur</th>
+                <th>Gestion de l'acteur</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for actor in actors %}
+                <tr>
+                    <td class="align-middle">{{ loop.index }}</td>
+                    <td class="align-middle">{{ actor.name }}</td>
+                    <td class="d-flex justify-content-center">
+                        <a href="{{ path('actor_show', {'slug': actor.slug}) }}" class="btn btn-primary"><i
+                                    class="far fa-eye mr-2"></i> Détails</a>
+                        <a href="{{ path('actor_edit', {'slug': actor.slug}) }}" class="btn btn-primary"><i
+                                    class="fas fa-cog mr-2"></i> Modifier</a>
+                        {{ include('actor/_delete_form.html.twig') }}
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">Aucun acteur dans la liste</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+{% endblock %}

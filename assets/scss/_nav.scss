@@ -1,0 +1,14 @@
+.navbar {
+    background-color: var(--dark);
+}
+
+$pic-size: 3rem;
+
+.profil-pic {
+    width: $pic-size;
+    height: $pic-size;
+}
+
+.logo {
+    height:$pic-size - 0.5;
+}

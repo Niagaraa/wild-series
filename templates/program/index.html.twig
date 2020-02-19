@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Séries{% endblock %}
+
+{% block body %}
+
+    <div class="container mt-5 admin">
+        <h1>Toutes les séries</h1>
+        <hr>
+
+        <a href="{{ path('program_new') }}" class="btn btn-primary mb-5">
+            <i class="fas fa-plus mr-2"></i> Ajouter une série
+        </a>
+
+        <table class="table table-striped">
+            <thead class="table table-dark text-center">
+            <tr>
+                <th></th>
+                <th>Affiche</th>
+                <th>Titre</th>
+                <th>Résumé</th>
+                <th class="w-25">Gestion de la série</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for program in programs %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td><img src="{{ program.poster }}" class="poster" alt=""></td>
+                    <td>{{ program.title }}</td>
+                    <td>{{ program.summary|truncate(550) }}</td>
+                    <td class="align-items-center">
+                        <div class="buttons">
+                            <a href="{{ path('program_show', {'slug': program.slug }) }}"
+                               class="btn btn-primary"><i class="far fa-eye mr-2"></i> Détails</a>
+                            <a href="{{ path('program_edit', {'slug': program.slug }) }}"
+                               class="btn btn-primary"><i class="fas fa-cog mr-2"></i> Modifier</a>
+                            {{ include('program/_delete_form.html.twig') }}
+                        </div>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">Aucune série enregistrée</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

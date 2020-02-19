@@ -1,0 +1,34 @@
+.program {
+    .container {
+        margin-top: 3rem;
+    }
+
+    .btn {
+        width: max-content;
+        height: min-content;
+    }
+}
+
+.pic {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 55rem;
+}
+
+.synopsis {
+    margin-left: 3rem;
+}
+
+.seasons {
+    display: flex;
+    width: 100%;
+    margin: 2rem;
+    justify-content: center;
+}
+
+.casting {
+    column-count:3;
+    column-fill: balance;
+}

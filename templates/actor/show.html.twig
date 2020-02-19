@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ actor.name }}{% endblock %}
+
+{% block body %}
+
+    <div class="container mt-4">
+
+        <a href="{{ path('actor_index') }}" class="btn btn-primary">
+            <i class="fas fa-reply mr-2"></i> Retour à la liste des acteurs
+        </a>
+
+        <div class="d-flex align-items-center">
+            <h1 class="mt-1">{{ actor.name }}</h1>
+            <a href="{{ path('actor_edit', {'slug': actor.slug}) }}" class="btn btn-primary">
+                <i class="fas fa-cog mr-2"></i> Modifier</a>
+        </div>
+        <hr>
+
+        <p class="mt-5"><b class="text-uppercase">{{ actor.name }}</b> a joué dans :</p>
+
+        <div class="programs">
+
+            {% for program in programs %}
+                <a class="card" href="{{ path('program_show', {'slug': program.slug }) }}"
+                   style="width: 18rem;">
+                    <img src="{{ program.poster }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h2>{{ program.title }}</h2>
+                    </div>
+                </a>
+            {% endfor %}
+
+        </div>
+
+    </div>
+{% endblock %}

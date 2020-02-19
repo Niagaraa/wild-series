@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="posters">
+        <img src="{{ program.poster }}" alt="" class="poster-episode1 mt-5">
+        {% if program.poster2 is defined %}
+            <img src="{{ program.poster2 }}" alt="" class="poster-episode2">
+        {% endif %}
+    </div>
+
+    <div class="container episode">
+
+        <h1>{{ program.title }}</h1>
+        <h2>Saison {{ season.number }}, Episode {{ episode.number }}</h2>
+
+        <div class="card">
+            <div class="card-body">
+                <h3>{{ episode.title }}</h3>
+                <p>{{ episode.synopsis }}</p>
+            </div>
+        </div>
+
+        <a href="{{ path('show_program', {'programName': program.title }) }}" class="btn btn-primary" role="button">
+            <i class="fas fa-reply mr-2"></i> Retour à {{ program.title }}
+        </a>
+
+        <a href="{{ path('show_season', {'id': season.id }) }}" class="btn btn-primary" role="button">
+            <i class="fas fa-film mr-2"></i> Saison {{ season.number }} de {{ program.title }}
+        </a>
+
+        <h2>Commentaires</h2>
+        <hr>
+
+        {{ include('wild/_comment.html.twig') }}
+
+    </div>
+
+{% endblock %}

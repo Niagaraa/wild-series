@@ -1,0 +1,24 @@
+.episode {
+    .card {
+        margin: 3rem;
+    }
+}
+
+.posters {
+    position: absolute;
+    margin-top: 5vh;
+    display: flex;
+    flex-direction: column;
+
+    img {
+        height: 20rem;
+    }
+}
+
+.poster-episode1 {
+    transform: rotate(20deg);
+}
+
+.poster-episode2 {
+    transform: rotate(-20deg);
+}

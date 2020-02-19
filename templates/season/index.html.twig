@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Saisons{% endblock %}
+
+{% block body %}
+
+    <div class="container mt-5 admin">
+
+        <h1>Toutes les saisons</h1>
+        <hr>
+
+        <a href="{{ path('season_new') }}" class="btn btn-primary mb-5">
+            <i class="fas fa-plus mr-2"></i> Ajouter une saison
+        </a>
+
+        <table class="table table-striped">
+            <thead class="table-dark text-center">
+            <tr>
+                <th>Série</th>
+                <th>Saison</th>
+                <th>Année</th>
+                <th>Description</th>
+                <th class="w-25">Gestion de la saison</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for season in seasons %}
+                <tr>
+                    <td class="d-flex flex-column text-center"><b class="mb-2">{{ season.program.title }}</b>
+                        <img src="{{ season.program.poster }}" alt="Affiche de {{ season.program.title }}" class="poster"></td>
+                    <td class="align-middle">{{ season.number }}</td>
+                    <td class="align-middle">{{ season.year }}</td>
+                    <td>{{ season.description }}</td>
+                    <td class="align-middle">
+                        <div class="buttons">
+                            <a href="{{ path('season_show', {'id': season.id}) }}" class="btn btn-primary"><i class="far fa-eye mr-2"></i> Détails</a>
+                            <a href="{{ path('season_edit', {'id': season.id}) }}" class="btn btn-primary"><i class="fas fa-cog mr-2"></i> Modifier</a>
+                            {{ include('season/_delete_form.html.twig') }}
+                        </div>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">Aucune saison enregistrée</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+
+{% endblock %}

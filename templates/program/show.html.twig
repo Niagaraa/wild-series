@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ program.title }}{% endblock %}
+
+{% block body %}
+
+    <div class="container mt-4 program-admin">
+        <a href="{{ path('program_index') }}" class="btn btn-primary">
+            <i class="fas fa-reply mr-2"></i> Retour à la liste des séries
+        </a>
+
+        <div class="d-flex align-items-center">
+            <h1>{{ program.title }}</h1>
+            <a href="{{ path('program_edit', {'slug': program.slug }) }}" class="btn btn-primary">
+                <i class="fas fa-cog mr-2"></i> Modifier
+            </a>
+        </div>
+        <hr>
+
+        <table class="table table-striped mb-5">
+            <tbody>
+            <tr>
+                <th class="table-dark">Titre</th>
+                <td>{{ program.title }}</td>
+            </tr>
+            <tr>
+                <th class="table-dark">Catégorie</th>
+                <td>{{ program.category.name }}</td>
+            </tr>
+            <tr>
+                <th class="table-dark">Résumé</th>
+                <td>{{ program.summary }}</td>
+            </tr>
+            <tr>
+                <th class="table-dark">Affiche(s)</th>
+                <td>
+                    <img src="{{ program.poster }}" alt="Affiche de {{ program.title }}" class="poster">
+                    {% if program.poster2 is defined %}
+                    <img src="{{ program.poster2 }}" alt="Affiche de {{ program.title }}" class="poster ml-3">
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th class="table-dark">Acteurs</th>
+                <td>
+                    <div class="casting">
+                        <ul>
+                            {% for actor in program.actors %}
+                                <li><a href="{{ path('actor_show', {'slug':actor.slug}) }}">{{ actor.name }}</a></li>
+                            {% else %}
+                                <li>Aucun acteur pour cette série</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+{% endblock %}

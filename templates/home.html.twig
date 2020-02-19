@@ -1,5 +1,33 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Index</h1>
+
+    <img src="{{ asset('build/images/banner.jpg') }}" alt="" class="banner mb-3">
+
+    <div class="container-fluid home">
+
+        <h1><i class="fas fa-star"></i> Nouveautés</h1>
+        <hr>
+
+        <div class="card-deck justify-content-around">
+            {% for program in programs %}
+                <div class="flex-wrap">
+                    <div class="card" style="width: 18rem;">
+                        <a href="{{ path('show_program', {'programName': program.slug }) }}">
+                            <img class="card-img-top" src="{{ program.poster }}" alt="Affiche de {{ program.title }}">
+                        </a>
+                        <p class="category" style="background-color: {{ program.category.color }}">
+                            <small>{{ program.category.name }}</small></p>
+                        <div class="card-body">
+                            <h2 class="card-title">{{ program.title }}</h2>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <div class="d-flex justify-content-center">
+            <a href="{{ path('wild_index') }}" class="btn btn-primary mb-5">Voir toutes les séries</a>
+        </div>
+    </div>
 {% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Saison{% endblock %}
+
+{% block body %}
+    <div class="container mt-4">
+
+        <a href="{{ path('season_index') }}" class="btn btn-primary">
+            <i class="fas fa-reply mr-2"></i> Retour à la liste des saisons
+        </a>
+
+        <div class="d-flex align-items-center">
+            <h1>Saison {{ season.number }} de {{ season.program.title }}</h1>
+            <a href="{{ path('season_edit', {'id': season.id}) }}" class="btn btn-primary">
+                <i class="fas fa-cog mr-2"></i> Modifier
+            </a>
+        </div>
+        <hr>
+
+        <table class="table table-striped">
+            <tbody>
+            <tr>
+                <th class="table-dark">Série</th>
+                <td>{{ season.program.title }}</td>
+            </tr>
+            <tr>
+                <th class="table-dark">Saison n°</th>
+                <td>{{ season.number }}</td>
+            </tr>
+            <tr>
+                <th class="table-dark">Année</th>
+                <td>{{ season.year }}</td>
+            </tr>
+            <tr>
+                <th class="table-dark">Description</th>
+                <td>{{ season.description }}</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+{% endblock %}

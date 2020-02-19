@@ -1,0 +1,16 @@
+services:
+    _defaults:
+        public: false
+        autowire: true
+        autoconfigure: true
+
+    dzango.twig.truncate_extension:
+        class: Dzango\Twig\Extension\Truncate
+        tags:
+            - { name: twig.extension }
+
+    # Uncomment any lines below to activate that Twig extension
+    #Twig\Extensions\ArrayExtension: null
+    #Twig\Extensions\DateExtension: null
+    #Twig\Extensions\IntlExtension: null
+    #Twig\Extensions\TextExtension: null

@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <h1>S'inscrire</h1>
+        <hr>
+
+        <div class="register mt-5 d-flex justify-content-center">
+            <div class="card">
+
+                <h2 class="card-header text-center p-4 bg-primary mb-3">
+                    <strong class="text-light">Rejoindre Wild Series</strong>
+                </h2>
+
+                <div class="card-body text-center">
+                    {{ form_start(registrationForm) }}
+
+                    <div class="uk-margin">
+                        {{ form_label(registrationForm.username) }}
+                        <div class="uk-inline">
+                            <span class="uk-form-icon" uk-icon="icon: user"></span>
+                            <div class="uk-input">{{ form_widget(registrationForm.username) }}</div>
+                        </div>
+                    </div>
+
+                    <div class="uk-margin">
+                        {{ form_label(registrationForm.email) }}
+                        <div class="uk-inline">
+                            <span class="uk-form-icon" uk-icon="icon: mail"></span>
+                            <div class="uk-input">{{ form_widget(registrationForm.email) }}</div>
+                        </div>
+                    </div>
+
+                    <div class="uk-margin">
+                        {{ form_label(registrationForm.plainPassword) }}
+                        <div class="uk-inline">
+                            <span class="uk-form-icon" uk-icon="icon: lock"></span>
+                            <div class="uk-input">{{ form_widget(registrationForm.plainPassword) }}</div>
+                        </div>
+                    </div>
+
+                    {{ form_row(registrationForm.agreeTerms) }}
+
+                    <div class="d-flex justify-content-center">
+                        <button class="btn btn-secondary">
+                            <i class="fas fa-sign-in-alt mr-2"></i> Je m'inscris
+                        </button>
+                        {#                        {{ form_end(registrationForm) }}#}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="posters">
+        <img src="{{ program.poster }}" alt="" class="poster-episode1 mt-5">
+        {% if program.poster2 is defined %}
+            <img src="{{ program.poster2 }}" alt="" class="poster-episode2">
+        {% endif %}
+    </div>
+
+    <div class="container">
+
+        <h1>Saison {{ season.number }} de <i>{{ program.title }}</i></h1>
+        <hr>
+        <p>{{ program.summary }}</p>
+
+        <a class="btn btn-primary" href="{{ path('show_program', {'programName': program.slug }) }}"><i class="fas fa-reply mr-2"></i> Retour</a>
+
+        <div class="episodes">
+            {% for episode in episodes %}
+                <a href="{{ path('show_episode', {'slug': episode.slug }) }}">
+                    <h2>Episode {{ episode.number }} : <i>{{ episode.title }}</i></h2>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -6,6 +6,7 @@
         "ext-ctype": "*",
         "ext-iconv": "*",
         "doctrine/doctrine-fixtures-bundle": "^3.3",
+        "dzango/twig-truncate-extension": "^1.1",
         "sensio/framework-extra-bundle": "^5.5",
         "symfony/asset": "4.4.*",
         "symfony/console": "4.4.*",
@@ -18,6 +19,7 @@
         "symfony/intl": "4.4.*",
         "symfony/mailer": "4.4.*",
         "symfony/monolog-bundle": "^3.1",
+        "symfony/google-mailer": "4.4.*",
         "symfony/orm-pack": "*",
         "symfony/process": "4.4.*",
         "symfony/security-bundle": "4.4.*",
@@ -30,10 +32,21 @@
     },
     "require-dev": {
         "symfony/debug-pack": "*",
-        "symfony/maker-bundle": "^1.0",
+        "symfony/twig-pack": "*",
+        "symfony/validator": "4.4.*",
+        "symfony/web-link": "4.4.*",
+        "symfony/webpack-encore-bundle": "^1.7",
+        "symfony/yaml": "4.4.*",
+        "twbs/bootstrap": "^4.3",
+        "twig/extensions": "^1.5",
+        "twig/twig": "^2.0",
+        "doctrine/doctrine-fixtures-bundle": "^3.3",
+        "fzaninotto/faker": "^1.9",
+        "symfony/maker-bundle": "^1.14",
         "symfony/profiler-pack": "*",
         "symfony/test-pack": "*"
     },
+
     "config": {
         "preferred-install": {
             "*": "dist"
